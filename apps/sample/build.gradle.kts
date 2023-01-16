@@ -18,3 +18,7 @@ dependencies {
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
+
+tasks.jacocoTestReport.configure {
+    enabled = true
+}
