@@ -10,3 +10,10 @@ sonarqube {
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
+
+// This is an example of a lifecycle task that crosses build boundaries defined in the umbrella build.
+tasks.register("checkAllApp") {
+    group = "verification"
+    description = "Run all feature tests"
+    dependsOn(gradle.includedBuild("apps").task(":sample:check"))
+}
