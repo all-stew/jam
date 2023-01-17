@@ -1,6 +1,0 @@
-addons:
-  sonarcloud:
-    organization: "all-stew" # the key of the org you chose at step #3
-script:
-  # other script steps might be done before running the actual analysis
-  - gradle build test sonar
