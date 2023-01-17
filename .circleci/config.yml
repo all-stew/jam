@@ -11,8 +11,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Analyze on SonarCloud
-          command: gradle checkAllApp sonar
+          name: Upload Report
+          command: gradle :aggregation:test-coverage:check :aggregation:test-coverage:sonar
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
