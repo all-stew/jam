@@ -1,4 +1,5 @@
 plugins {
+    id("jacoco")
     id("com.zhaojj11.jam.spring-boot-application")
 }
 
@@ -15,10 +16,15 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-tasks.getByName<Test>("test") {
+tasks.test {
     useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
 }
 
-tasks.jacocoTestReport.configure {
+tasks.jacocoTestReport {
     enabled = true
+    dependsOn(tasks.test) // tests are required to run before generating the report
+    reports {
+        xml.required.set(true)
+    }
 }
