@@ -1,5 +1,4 @@
 plugins {
-    id("jacoco")
     id("org.sonarqube") version ("3.5.0.2730")
 }
 
@@ -27,7 +26,6 @@ tasks.register("build-all-apps") {
 // This is an example of a lifecycle task that crosses build boundaries defined in the umbrella build.
 tasks.register("test-all-apps") {
     group = "verification"
-    description = "Run all feature tests"
+    description = "Run all apps tests"
     dependsOn(gradle.includedBuild("apps").task(":sample:test"))
-    dependsOn(gradle.includedBuild("apps").task(":sample:jacocoTestReport"))
 }
