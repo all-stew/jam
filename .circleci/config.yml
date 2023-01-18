@@ -17,7 +17,7 @@ jobs:
           name: Upload Coverage Report to SonarCloud
           command: gradle test sonar
     environment:
-      _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Xms1000m -Xmx1436m -XX:MaxMetaspaceSize=1436m -XX:ParallelGCThreads=1 -XX:ConcGCThreads=1 -Djava.util.concurrent.ForkJoinPool.common.parallelism=2"
+      _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -Xms1000m -Xmx1436m -XX:MaxMetaspaceSize=1436m -XX:ParallelGCThreads=1 -XX:ConcGCThreads=1 -Djava.util.concurrent.ForkJoinPool.common.parallelism=2"
       GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx1500m -XX:+HeapDumpOnOutOfMemoryError" -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=1 -Dorg.gradle.parallel=false -DdisablePreDex'
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
