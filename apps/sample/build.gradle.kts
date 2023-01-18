@@ -1,5 +1,15 @@
 plugins {
+    id("jacoco")
     id("com.zhaojj11.jam.spring-boot-application")
+    id("org.sonarqube") version ("3.5.0.2730")
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "all-stew_jam")
+        property("sonar.organization", "all-stew")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 group = "${group}.apps"
@@ -15,10 +25,16 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+tasks.jacocoTestReport {
+    enabled = true
+    dependsOn(tasks.test) // tests are required to run before generating the report
+    reports {
+        xml.required.set(true)
+    }
 }
 
-tasks.jacocoTestReport.configure {
-    enabled = true
+tasks.test {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
 }
+
