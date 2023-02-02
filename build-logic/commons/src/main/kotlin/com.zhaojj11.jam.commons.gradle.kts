@@ -1,6 +1,5 @@
 plugins {
     id("java")
-    id("com.zhaojj11.jam.jacoco")
 }
 
 group = "com.zhaojj11.jam"
