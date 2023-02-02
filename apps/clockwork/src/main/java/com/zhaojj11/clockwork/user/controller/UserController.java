@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/user/v1")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
 
