@@ -10,6 +10,7 @@ sonarqube {
         property("sonar.projectKey", "all-stew_jam")
         property("sonar.organization", "all-stew")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.projectName", "jam")
     }
 }
 
