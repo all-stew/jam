@@ -1,4 +1,4 @@
-package com.zhaojj11.jam.sample.utils;
+package com.zhaojj11.jam.sample.common.utils;
 
 /**
  * 测试工具
