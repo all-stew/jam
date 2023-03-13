@@ -1,7 +1,7 @@
-package com.zhaojj11.jam.sample.system.dao;
+package com.zhaojj11.jam.springjpacore.dao;
 
 
-import com.zhaojj11.jam.sample.system.entity.BaseEntity;
+import com.zhaojj11.jam.springjpacore.entity.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,10 +13,12 @@ import java.util.List;
 import java.util.Optional;
 
 /**
+ * 基础dao层
+ *
  * @author zhaojj11
  */
 @NoRepositoryBean
-public interface BaseDao<T extends BaseEntity> extends JpaRepository<T, Long> {
+public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, Long> {
     /**
      * 根据id逻辑删除
      *
@@ -25,7 +27,7 @@ public interface BaseDao<T extends BaseEntity> extends JpaRepository<T, Long> {
     @Query("update #{#entityName} t set t.isDeleted = 1 where t.id = ?1")
     @Transactional(rollbackFor = Exception.class)
     @Modifying
-    void logicDeleteById(@Nonnull Long id);
+    void logicDeleteById(Long id);
 
     /**
      * 查询所有数据
@@ -45,5 +47,6 @@ public interface BaseDao<T extends BaseEntity> extends JpaRepository<T, Long> {
      */
     @Query("select t from #{#entityName} t where t.id = ?1 and t.isDeleted = 0")
     @Transactional(readOnly = true)
-    Optional<T> findById(@Nonnull Long id);
+    @Nonnull
+    Optional<T> findById(Long id);
 }
