@@ -1,6 +1,6 @@
 package com.zhaojj11.clockwork.exception;
 
-import com.zhaojj11.jam.core.exception.BaseException;
+import com.zhaojj11.jam.libs.core.exception.BaseException;
 
 /**
  * 用户异常

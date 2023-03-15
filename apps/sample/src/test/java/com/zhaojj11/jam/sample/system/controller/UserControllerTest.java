@@ -1,5 +1,6 @@
 package com.zhaojj11.jam.sample.system.controller;
 
+import com.zhaojj11.jam.libs.springcore.handler.GlobalExceptionHandler;
 import com.zhaojj11.jam.sample.system.entity.User;
 import com.zhaojj11.jam.sample.system.service.impl.UserServiceImpl;
 import org.hamcrest.Matchers;
@@ -17,6 +18,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.method.annotation.ExceptionHandlerMethodResolver;
+import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
+import org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod;
+
+import java.lang.reflect.Method;
+
 
 @ExtendWith(SpringExtension.class)
 class UserControllerTest {
@@ -34,11 +42,27 @@ class UserControllerTest {
         userData.setId(1L);
     }
 
-
     @BeforeEach
     public void setupMock() {
-        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(userController).setControllerAdvice(withExceptionControllerAdvice()).build();
     }
+
+    private ExceptionHandlerExceptionResolver withExceptionControllerAdvice() {
+        final ExceptionHandlerExceptionResolver exceptionResolver = new ExceptionHandlerExceptionResolver() {
+            @Override
+            protected ServletInvocableHandlerMethod getExceptionHandlerMethod(final HandlerMethod handlerMethod,
+                                                                              final Exception exception) {
+                Method method = new ExceptionHandlerMethodResolver(GlobalExceptionHandler.class).resolveMethod(exception);
+                if (method != null) {
+                    return new ServletInvocableHandlerMethod(new GlobalExceptionHandler(), method);
+                }
+                return super.getExceptionHandlerMethod(handlerMethod, exception);
+            }
+        };
+        exceptionResolver.afterPropertiesSet();
+        return exceptionResolver;
+    }
+
 
     @Test
     void getByIdReturnNotNull() throws Exception {
@@ -57,10 +81,9 @@ class UserControllerTest {
 
     @Test
     void getByIdReturnNull() throws Exception {
-        Mockito.when(userServiceImpl.findById(ArgumentMatchers.eq(1))).thenReturn(null);
+        Mockito.when(userServiceImpl.findById(ArgumentMatchers.eq(1L))).thenReturn(null);
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/user/v1/{id}", 1)
-                        .accept(MediaType.APPLICATION_JSON_VALUE)
+                        .get("/api/user/v1/{id}", 1L)
                 )
                 .andExpect(MockMvcResultMatchers.status().isNotFound())
                 .andReturn();

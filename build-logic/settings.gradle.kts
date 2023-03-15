@@ -10,4 +10,5 @@ rootProject.name = "build-logic"
 include("commons")
 include("java-library")
 include("kotlin-library")
+include("spring-boot-library")
 include("spring-boot-application")

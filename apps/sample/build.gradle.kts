@@ -25,6 +25,7 @@ dependencies {
     implementation(enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5"))
 
     implementation("com.zhaojj11.jam.libs:core")
+    implementation("com.zhaojj11.jam.libs:spring-core")
     implementation("com.zhaojj11.jam.libs:spring-jpa-core")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

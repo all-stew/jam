@@ -8,7 +8,7 @@ group = "com.zhaojj11.jam.platform"
 javaPlatform.allowDependencies()
 
 dependencies {
-    api(platform("org.springframework.boot:spring-boot-dependencies:3.0.0"))
+    api(platform("org.springframework.boot:spring-boot-dependencies:2.7.6"))
 
     constraints {
         api("org.apache.juneau:juneau-marshall:8.2.0")

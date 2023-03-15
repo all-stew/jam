@@ -145,6 +145,12 @@ public class Menu implements Serializable {
 
     @Mapper
     public interface MenuMapper extends BaseMapper<Menu> {
+        /**
+         * 根据用户id查询菜单
+         *
+         * @param userId 用户id
+         * @return 菜单列表
+         */
         @Select("""
                 SELECT DISTINCT m.*
                 FROM user_roles ur

@@ -8,4 +8,5 @@ dependencyResolutionManagement {
 rootProject.name = "libs"
 
 include("core")
+include("spring-core")
 include("spring-jpa-core")

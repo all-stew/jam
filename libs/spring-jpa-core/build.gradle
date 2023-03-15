@@ -1,6 +1,5 @@
 plugins {
-    id("com.zhaojj11.jam.java-library")
-    id("com.zhaojj11.jam.spring-boot-application")
+    id("com.zhaojj11.jam.spring-boot-library")
     id("io.freefair.lombok") version "6.5.1"
 }
 
@@ -8,9 +7,6 @@ group = "${group}.libs"
 
 
 dependencies {
-    implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:2.7.6"))
-    implementation(enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5"))
-
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

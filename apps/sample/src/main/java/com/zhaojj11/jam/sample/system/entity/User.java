@@ -1,6 +1,6 @@
 package com.zhaojj11.jam.sample.system.entity;
 
-import com.zhaojj11.jam.springjpacore.entity.BaseEntity;
+import com.zhaojj11.jam.libs.springjpacore.entity.BaseEntity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

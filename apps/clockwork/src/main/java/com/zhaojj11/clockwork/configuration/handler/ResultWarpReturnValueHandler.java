@@ -1,6 +1,6 @@
 package com.zhaojj11.clockwork.configuration.handler;
 
-import com.zhaojj11.jam.core.model.ApiResponse;
+import com.zhaojj11.jam.libs.core.model.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.lang.NonNull;
