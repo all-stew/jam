@@ -26,7 +26,7 @@ dependencies {
 
     implementation("com.zhaojj11.jam.libs:core")
     implementation("com.zhaojj11.jam.libs:spring-core")
-    implementation("com.zhaojj11.jam.libs:spring-jpa-core")
+    implementation("com.zhaojj11.jam.libs:jpa-spring-boot-starter")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
@@ -40,6 +40,7 @@ dependencies {
     implementation("org.flywaydb:flyway-mysql")
     implementation("com.auth0:java-jwt:4.3.0")
 
+    testImplementation("com.zhaojj11.jam.libs:test-spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

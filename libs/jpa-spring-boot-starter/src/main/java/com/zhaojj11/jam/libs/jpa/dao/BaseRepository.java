@@ -1,7 +1,7 @@
-package com.zhaojj11.jam.libs.springjpacore.dao;
+package com.zhaojj11.jam.libs.jpa.dao;
 
 
-import com.zhaojj11.jam.libs.springjpacore.entity.BaseEntity;
+import com.zhaojj11.jam.libs.jpa.entity.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

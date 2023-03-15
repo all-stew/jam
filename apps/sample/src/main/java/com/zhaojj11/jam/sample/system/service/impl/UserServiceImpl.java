@@ -1,6 +1,6 @@
 package com.zhaojj11.jam.sample.system.service.impl;
 
-import com.zhaojj11.jam.libs.springjpacore.service.impl.BaseServiceImpl;
+import com.zhaojj11.jam.libs.jpa.service.impl.BaseServiceImpl;
 import com.zhaojj11.jam.sample.system.entity.User;
 import com.zhaojj11.jam.sample.system.repository.UserRepository;
 import com.zhaojj11.jam.sample.system.service.UserService;

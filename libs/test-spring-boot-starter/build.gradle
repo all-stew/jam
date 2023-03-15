@@ -1,0 +1,14 @@
+plugins {
+    id("com.zhaojj11.jam.spring-boot-library")
+    id("io.freefair.lombok") version "6.5.1"
+}
+
+group = "${group}.libs"
+
+dependencies {
+    implementation(project(":spring-core"))
+
+    implementation("com.google.code.findbugs:jsr305")
+    implementation("org.springframework:spring-web")
+    implementation("org.springframework:spring-webmvc")
+}

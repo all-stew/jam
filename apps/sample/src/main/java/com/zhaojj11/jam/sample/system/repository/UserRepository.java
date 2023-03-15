@@ -1,6 +1,6 @@
 package com.zhaojj11.jam.sample.system.repository;
 
-import com.zhaojj11.jam.libs.springjpacore.dao.BaseRepository;
+import com.zhaojj11.jam.libs.jpa.dao.BaseRepository;
 import com.zhaojj11.jam.sample.system.entity.User;
 import org.springframework.stereotype.Repository;
 

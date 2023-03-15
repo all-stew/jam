@@ -1,4 +1,4 @@
-package com.zhaojj11.jam.libs.springjpacore.entity;
+package com.zhaojj11.jam.libs.jpa.entity;
 
 import lombok.Getter;
 

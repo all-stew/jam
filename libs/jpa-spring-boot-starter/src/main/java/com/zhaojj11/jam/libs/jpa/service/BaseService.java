@@ -1,7 +1,7 @@
-package com.zhaojj11.jam.libs.springjpacore.service;
+package com.zhaojj11.jam.libs.jpa.service;
 
 
-import com.zhaojj11.jam.libs.springjpacore.entity.BaseEntity;
+import com.zhaojj11.jam.libs.jpa.entity.BaseEntity;
 
 /**
  * 基础service
