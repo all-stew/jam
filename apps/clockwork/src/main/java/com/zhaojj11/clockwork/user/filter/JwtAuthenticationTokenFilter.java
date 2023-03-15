@@ -4,7 +4,7 @@ import com.zhaojj11.clockwork.common.utils.JwtUtil;
 import com.zhaojj11.clockwork.exception.UserException;
 import com.zhaojj11.clockwork.user.entity.dto.LoginUserDetails;
 import com.zhaojj11.clockwork.user.service.UserService;
-import com.zhaojj11.jam.core.constants.RedisConstants;
+import com.zhaojj11.jam.libs.core.constants.RedisConstants;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;

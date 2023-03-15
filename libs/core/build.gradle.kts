@@ -4,8 +4,3 @@ plugins {
 }
 
 group = "${group}.libs"
-
-
-dependencies {
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-}

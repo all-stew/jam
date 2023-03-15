@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    implementation(platform("com.zhaojj11.jam.platform:plugins-platform"))
+    implementation(platform("com.zhaojj11.jam.platform:spring-boot-platform"))
 
     implementation(project(":commons"))
 

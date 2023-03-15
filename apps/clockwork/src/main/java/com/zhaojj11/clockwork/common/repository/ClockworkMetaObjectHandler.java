@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-import static com.zhaojj11.jam.core.constants.StringConstant.CREATED_TIME;
-import static com.zhaojj11.jam.core.constants.StringConstant.UPDATED_TIME;
+import static com.zhaojj11.jam.libs.core.constants.StringConstant.CREATED_TIME;
+import static com.zhaojj11.jam.libs.core.constants.StringConstant.UPDATED_TIME;
 import static java.time.ZoneId.systemDefault;
 
 /**

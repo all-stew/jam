@@ -4,7 +4,7 @@ import com.zhaojj11.clockwork.user.entity.transformer.UserTransformer;
 import com.zhaojj11.clockwork.user.entity.vo.request.LoginUserRequestVO;
 import com.zhaojj11.clockwork.user.entity.vo.response.LoginUserResponseVO;
 import com.zhaojj11.clockwork.user.service.UserService;
-import com.zhaojj11.jam.core.model.ApiResponse;
+import com.zhaojj11.jam.libs.core.model.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

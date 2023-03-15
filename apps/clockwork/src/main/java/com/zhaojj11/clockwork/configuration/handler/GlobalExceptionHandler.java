@@ -1,8 +1,8 @@
 package com.zhaojj11.clockwork.configuration.handler;
 
 import com.zhaojj11.clockwork.exception.UserException;
-import com.zhaojj11.jam.core.exception.BaseException;
-import com.zhaojj11.jam.core.model.ApiResponse;
+import com.zhaojj11.jam.libs.core.exception.BaseException;
+import com.zhaojj11.jam.libs.core.model.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

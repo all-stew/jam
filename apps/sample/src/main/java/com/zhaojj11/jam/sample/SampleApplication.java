@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author zhaojj11
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.zhaojj11.jam.*")
 public class SampleApplication {
     public static void main(String[] args) {
         SpringApplication.run(SampleApplication.class, args);
