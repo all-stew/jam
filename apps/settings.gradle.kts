@@ -1,3 +1,3 @@
 rootProject.name = "apps"
 
-include("sample")
+include("basket")

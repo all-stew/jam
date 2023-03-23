@@ -12,11 +12,11 @@ public class NotFoundException extends BaseException {
         super(message);
     }
 
-    public NotFoundException(Exception e) {
-        super(e);
+    public NotFoundException(Throwable cause) {
+        super(cause);
     }
 
-    public NotFoundException(Integer code, String message) {
-        super(code, message);
+    public NotFoundException(String message, Throwable cause) {
+        super(message, cause);
     }
 }
