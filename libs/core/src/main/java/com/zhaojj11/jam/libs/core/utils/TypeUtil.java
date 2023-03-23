@@ -1,7 +1,5 @@
 package com.zhaojj11.jam.libs.core.utils;
 
-import lombok.experimental.UtilityClass;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -12,8 +10,11 @@ import java.time.ZoneOffset;
  *
  * @author zhaojj11
  */
-@UtilityClass
-public class TypeUtil {
+public final class TypeUtil {
+
+    private TypeUtil() {
+    }
+
     /**
      * java本地时间转换成UTC时间戳（秒）
      *

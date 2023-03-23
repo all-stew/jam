@@ -1,27 +1,25 @@
 package com.zhaojj11.jam.libs.core.exception;
 
+import java.io.Serial;
+
 /**
  * 基础异常
  *
  * @author zhaojj11
  */
 public class BaseException extends RuntimeException {
-    protected int code;
+    @Serial
+    private static final long serialVersionUID = 1774497080485077592L;
 
     public BaseException(String message) {
         super(message);
     }
 
-    public BaseException(Exception e) {
-        super(e);
+    public BaseException(String message, Throwable cause) {
+        super(message, cause);
     }
 
-    public BaseException(Integer code, String message) {
-        super(message);
-        this.code = code;
-    }
-
-    public Integer getCode() {
-        return code;
+    public BaseException(Throwable cause) {
+        super(cause);
     }
 }
