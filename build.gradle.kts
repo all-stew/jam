@@ -2,12 +2,14 @@ tasks.register("clean") {
     group = "build"
     description = "clean all apps"
     dependsOn(gradle.includedBuild("apps").task(":basket:clean"))
+    dependsOn(gradle.includedBuild("apps").task(":albion-helper:clean"))
 }
 
 tasks.register("build") {
     group = "build"
     description = "Build all apps"
     dependsOn(gradle.includedBuild("apps").task(":basket:build"))
+    dependsOn(gradle.includedBuild("apps").task(":albion-helper:build"))
 }
 
 
@@ -17,6 +19,7 @@ tasks.register("test") {
     description = "Run all tests"
     dependsOn(gradle.includedBuild("libs").task(":core:test"))
     dependsOn(gradle.includedBuild("apps").task(":basket:test"))
+    dependsOn(gradle.includedBuild("apps").task(":albion-helper:test"))
 }
 
 tasks.register("sonar") {
@@ -24,4 +27,5 @@ tasks.register("sonar") {
     description = "send to sonar"
     dependsOn(gradle.includedBuild("libs").task(":core:test"))
     dependsOn(gradle.includedBuild("apps").task(":basket:sonar"))
+    dependsOn(gradle.includedBuild("apps").task(":albion-helper:sonar"))
 }
