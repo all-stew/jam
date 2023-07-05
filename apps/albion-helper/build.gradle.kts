@@ -33,6 +33,8 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
+    implementation("org.apache.commons:commons-collections4")
+
     implementation("mysql:mysql-connector-java")
 
     implementation("org.flywaydb:flyway-core")
