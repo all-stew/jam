@@ -26,7 +26,6 @@ dependencies {
 
     implementation("com.zhaojj11.jam.libs:core")
     implementation("com.zhaojj11.jam.libs:spring-core")
-    implementation("com.zhaojj11.jam.libs:jpa-spring-boot-starter")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -36,7 +35,7 @@ dependencies {
     implementation("org.apache.commons:commons-collections4")
 
     implementation("mysql:mysql-connector-java")
-
+    implementation("com.baomidou:mybatis-plus:3.5.3.2")
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-mysql")
 
