@@ -21,8 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:2.7.6"))
-    implementation(enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5"))
+    implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:3.0.0"))
 
     implementation("com.zhaojj11.jam.libs:core")
     implementation("com.zhaojj11.jam.libs:spring-core")

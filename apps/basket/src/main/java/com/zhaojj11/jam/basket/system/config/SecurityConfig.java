@@ -19,11 +19,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .csrf().disable()
-                .authorizeRequests(
-                        authz -> authz
-                                .anyRequest().permitAll()
-                ).httpBasic(Customizer.withDefaults());
+            .csrf().disable()
+            // FIXME 已过时方法
+            .authorizeRequests(
+                authz -> authz
+                    // FIXME 已过时方法
+                    .anyRequest().permitAll()
+            ).httpBasic(Customizer.withDefaults());
         return httpSecurity.build();
     }
 

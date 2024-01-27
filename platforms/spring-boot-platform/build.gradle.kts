@@ -11,10 +11,10 @@ dependencies {
     api(platform(project(":plugins-platform")))
     api(platform(project(":product-platform")))
 
-    api(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:2.7.6"))
-    api(enforcedPlatform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5"))
+    api(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:3.0.0"))
 
     constraints {
-        api("org.springframework.boot:org.springframework.boot.gradle.plugin:2.7.6")
+        api("org.springframework.boot:org.springframework.boot.gradle.plugin:3.0.0")
+        api("com.google.code.findbugs:jsr305:3.0.2")
     }
 }

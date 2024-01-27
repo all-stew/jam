@@ -25,3 +25,10 @@ tasks.register("sonar") {
     dependsOn(gradle.includedBuild("libs").task(":core:test"))
     dependsOn(gradle.includedBuild("apps").task(":basket:sonar"))
 }
+
+
+repositories {
+    maven {
+        setUrl("http://maven.aliyun.com/nexus/content/groups/public/")
+    }
+}

@@ -1,12 +1,12 @@
 package com.zhaojj11.jam.basket.system.service.impl;
 
 import com.zhaojj11.jam.basket.system.domain.repository.UserRepository;
+import jakarta.annotation.Resource;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 
 /**
  * @author zhaojj11

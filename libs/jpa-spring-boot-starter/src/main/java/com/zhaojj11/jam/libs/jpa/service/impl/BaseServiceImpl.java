@@ -3,9 +3,9 @@ package com.zhaojj11.jam.libs.jpa.service.impl;
 import com.zhaojj11.jam.libs.jpa.dao.BaseRepository;
 import com.zhaojj11.jam.libs.jpa.entity.BaseEntity;
 import com.zhaojj11.jam.libs.jpa.service.BaseService;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 
 /**
  * 基础service实现
