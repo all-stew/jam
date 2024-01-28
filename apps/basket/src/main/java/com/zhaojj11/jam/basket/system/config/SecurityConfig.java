@@ -20,10 +20,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
             .csrf().disable()
-            // FIXME 已过时方法
-            .authorizeRequests(
-                authz -> authz
-                    // FIXME 已过时方法
+            .authorizeHttpRequests(
+                auth -> auth
                     .anyRequest().permitAll()
             ).httpBasic(Customizer.withDefaults());
         return httpSecurity.build();

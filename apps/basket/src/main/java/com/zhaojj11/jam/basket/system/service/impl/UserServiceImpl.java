@@ -3,9 +3,9 @@ package com.zhaojj11.jam.basket.system.service.impl;
 import com.zhaojj11.jam.basket.system.domain.model.User;
 import com.zhaojj11.jam.basket.system.domain.repository.UserRepository;
 import com.zhaojj11.jam.basket.system.entity.vo.request.LoginUserRequestVO;
-import com.zhaojj11.jam.basket.system.exception.UserLoginException;
 import com.zhaojj11.jam.basket.system.service.UserService;
 import com.zhaojj11.jam.libs.jpa.service.impl.BaseServiceImpl;
+import com.zhaojj11.jam.libs.springcore.exception.Exceptions;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,11 +26,14 @@ public class UserServiceImpl extends BaseServiceImpl<UserRepository, User> imple
 
     @Override
     public void login(LoginUserRequestVO loginUserRequestVO) {
-        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(loginUserRequestVO.getUsername(), loginUserRequestVO.getPassword());
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
+            loginUserRequestVO.getUsername(),
+            loginUserRequestVO.getPassword()
+        );
         try {
             authenticationManager.authenticate(token);
         } catch (AuthenticationException e) {
-            throw new UserLoginException("login failed", e);
+            throw Exceptions.unauthorized("用户不存在或者密码错误", e);
         }
     }
 }

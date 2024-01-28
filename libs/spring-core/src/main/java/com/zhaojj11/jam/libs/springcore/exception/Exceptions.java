@@ -18,6 +18,17 @@ public class Exceptions {
         return from(HttpStatus.BAD_REQUEST, message, cause);
     }
 
+    public static SystemException unauthorized(String message, Throwable cause) {
+        return from(HttpStatus.UNAUTHORIZED, message, cause);
+    }
+
+    public static SystemException forbidden(String message, Throwable cause) {
+        return from(HttpStatus.FORBIDDEN, message, cause);
+    }
+
+    public static SystemException notFound(String message, Throwable cause) {
+        return from(HttpStatus.NOT_FOUND, message, cause);
+    }
 
     public static SystemException internalServerError(String message, Throwable cause) {
         return from(HttpStatus.INTERNAL_SERVER_ERROR, message, cause);

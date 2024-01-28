@@ -22,7 +22,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 @Getter
 @Setter
-@Table(name = "system_user")
+@Table(name = "user")
 @EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity implements UserDetails {
     /**

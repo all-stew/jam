@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
 
 /**
- * 系统异常-500
+ * 系统异常
  *
  * @author zhaojj11
  */
