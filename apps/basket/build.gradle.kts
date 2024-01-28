@@ -31,6 +31,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("javax.xml.bind:jaxb-api:2.3.0")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
     implementation("mysql:mysql-connector-java")
@@ -39,7 +40,6 @@ dependencies {
     implementation("org.flywaydb:flyway-mysql")
     implementation("io.jsonwebtoken:jjwt:0.9.0")
 
-    testImplementation("com.zhaojj11.jam.libs:test-spring-boot-starter")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

@@ -3,6 +3,8 @@ package com.zhaojj11.jam.basket.system.service.impl;
 import com.zhaojj11.jam.basket.system.domain.model.User;
 import com.zhaojj11.jam.basket.system.domain.repository.UserRepository;
 import com.zhaojj11.jam.basket.system.service.UserService;
+import jakarta.annotation.Resource;
+import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,9 +15,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import javax.annotation.Resource;
-import java.util.Optional;
 
 @Import({UserServiceImpl.class})
 @ExtendWith(SpringExtension.class)
