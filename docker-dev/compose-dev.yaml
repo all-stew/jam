@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  mysql-8.3.0:
+    image: mysql:8.3.0
+    container_name: mysql
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: "zjj123"
+    ports:
+      - "13306:3306"
+    volumes:
+      - /path/to/log:/var/log/mysql
+      - /path/to/my.cnf:/etc/my.cnf
+      - /path/to/data:/var/lib/mysql
+    restart: always
+  redis-7.2.4:
+    image: redis:7.2.4
+    container_name: redis
+    command: redis-server /etc/redis/redis.conf --appendonly yes
+    ports:
+      - "16379:6379"
+    volumes:
+      - /path/to/redis.conf:/etc/edis/redis.conf
+      - /path/to/data:/data
+    restart: always
