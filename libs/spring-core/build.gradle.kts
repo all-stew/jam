@@ -7,10 +7,13 @@ group = "${group}.libs"
 
 
 dependencies {
-
     implementation(project(":core"))
 
-    implementation("org.springframework:spring-web")
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.google.code.findbugs:jsr305")
+    implementation("org.apache.groovy:groovy-all")
+    implementation("org.apache.commons:commons-lang3")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

@@ -1,16 +1,20 @@
 package com.zhaojj11.jam.basket.system.domain.model;
 
 import com.zhaojj11.jam.libs.jpa.entity.BaseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.Collections;
 
 /**
  * @author zhaojj11
@@ -18,7 +22,7 @@ import java.util.Collections;
 @Entity
 @Getter
 @Setter
-@Table(name = "system_user")
+@Table(name = "user")
 @EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity implements UserDetails {
     /**

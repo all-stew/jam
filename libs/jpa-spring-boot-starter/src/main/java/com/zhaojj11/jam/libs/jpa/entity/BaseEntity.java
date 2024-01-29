@@ -1,10 +1,9 @@
 package com.zhaojj11.jam.libs.jpa.entity;
 
-import lombok.Getter;
-
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
+import lombok.Getter;
 
 /**
  * @author zhaojj11
