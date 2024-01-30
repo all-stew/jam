@@ -15,6 +15,7 @@ dependencies {
         api("com.google.code.findbugs:jsr305:3.0.2")
         api("org.apache.commons:commons-lang3:3.12.0")
         api("org.apache.groovy:groovy-all:4.0.15")
+        api("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
     }
 
 }

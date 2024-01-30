@@ -28,9 +28,11 @@ dependencies {
     implementation("com.zhaojj11.jam.libs:jpa-spring-boot-starter")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui")
     implementation("javax.xml.bind:jaxb-api:2.3.0")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
