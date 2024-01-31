@@ -1,13 +1,13 @@
 tasks.register("clean") {
     group = "build"
     description = "clean all apps"
-    dependsOn(gradle.includedBuild("apps").task(":basket:clean"))
+    dependsOn(gradle.includedBuild("apps").task(":console-gateway:clean"))
 }
 
 tasks.register("build") {
     group = "build"
     description = "Build all apps"
-    dependsOn(gradle.includedBuild("apps").task(":basket:build"))
+    dependsOn(gradle.includedBuild("apps").task(":console-gateway:build"))
 }
 
 
@@ -16,14 +16,14 @@ tasks.register("test") {
     group = "verification"
     description = "Run all tests"
     dependsOn(gradle.includedBuild("libs").task(":core:test"))
-    dependsOn(gradle.includedBuild("apps").task(":basket:test"))
+    dependsOn(gradle.includedBuild("apps").task(":console-gateway:test"))
 }
 
 tasks.register("sonar") {
     group = "verification"
     description = "send to sonar"
     dependsOn(gradle.includedBuild("libs").task(":core:test"))
-    dependsOn(gradle.includedBuild("apps").task(":basket:sonar"))
+    dependsOn(gradle.includedBuild("apps").task(":console-gateway:sonar"))
 }
 
 

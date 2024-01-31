@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
-    @Value("${basket.user-jwt-token:test}")
+    @Value("${user-jwt-token:test}")
     private String userJwtToken;
 
     @GetMapping("/{id}")
