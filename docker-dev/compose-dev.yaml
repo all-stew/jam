@@ -20,6 +20,6 @@ services:
     ports:
       - "16379:6379"
     volumes:
-      - /path/to/redis.conf:/etc/edis/redis.conf
+      - /path/to/redis.conf:/etc/redis/redis.conf
       - /path/to/data:/data
     restart: always
