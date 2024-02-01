@@ -25,7 +25,7 @@ public abstract class BaseException extends ErrorResponseException {
         super(status, cause);
     }
 
-    protected BaseException(HttpStatusCode status, ProblemDetail body, Throwable cause) {
+    protected BaseException(final HttpStatusCode status, final ProblemDetail body, final Throwable cause) {
         super(status, body, cause);
     }
 

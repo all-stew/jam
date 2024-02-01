@@ -25,6 +25,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table(name = "user")
 @EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity implements UserDetails {
+
     /**
      * 主键
      */
@@ -101,18 +102,18 @@ public class User extends BaseEntity implements UserDetails {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", gender=" + gender +
-                ", password='" + password + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", birthday=" + birthday +
-                ", age=" + age +
-                ", status=" + status +
-                ", lastLogin=" + lastLogin +
-                "} " + super.toString();
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", gender=" + gender +
+            ", password='" + password + '\'' +
+            ", idCard='" + idCard + '\'' +
+            ", email='" + email + '\'' +
+            ", phone='" + phone + '\'' +
+            ", birthday=" + birthday +
+            ", age=" + age +
+            ", status=" + status +
+            ", lastLogin=" + lastLogin +
+            "} " + super.toString();
     }
 
     @Override

@@ -1,6 +1,7 @@
 plugins {
     id("com.zhaojj11.jam.spring-boot-library")
     id("io.freefair.lombok") version "6.5.1"
+    id("checkstyle")
 }
 
 group = "${group}.libs"

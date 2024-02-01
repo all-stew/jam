@@ -1,5 +1,10 @@
 plugins {
     id("java-platform")
+    id("checkstyle")
+}
+
+checkstyle {
+    toolVersion = "10.12.5"
 }
 
 group = "com.zhaojj11.jam.platform"
