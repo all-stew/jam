@@ -5,6 +5,11 @@ plugins {
     id("checkstyle")
 }
 
+checkstyle {
+    toolVersion = "10.12.5"
+    configFile = file("../../config/checkstyle/checkstyle.xml")
+}
+
 sonarqube {
     properties {
         property("sonar.projectKey", "all-stew_jam")
