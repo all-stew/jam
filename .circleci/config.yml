@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Analyze on SonarCloud
-          command: chmod +x gradlew && ./gradlew build sonar
+          command: chmod +x gradlew && ./gradlew clean checkstyle build sonar
       - run:
           name: Upload Coverage Report to SonarCloud
           command: chmod +x gradlew && ./gradlew test sonar
