@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.7.21" apply false
 }
+
 tasks.register("clean") {
     subprojects {
         dependsOn(":$name:clean")
