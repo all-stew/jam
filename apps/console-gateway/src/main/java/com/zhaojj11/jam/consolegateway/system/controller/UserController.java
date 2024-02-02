@@ -24,14 +24,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/user/v1")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class UserController {
+public final class UserController {
 
     private final UserService userService;
     @Value("${user-jwt-token:test}")
     private String userJwtToken;
 
+    /**
+     * 通过id获取User.
+     *
+     * @param id userid
+     * @return User
+     */
     @GetMapping("/{id}")
-    public User getById(@PathVariable("id") Long id) {
+    public User getById(@PathVariable("id") final long id) {
         User user = userService.findById(id);
         if (user == null) {
             throw Exceptions.notFound("not found", null);
@@ -39,9 +45,18 @@ public class UserController {
         return user;
     }
 
+    /**
+     * 登录方法.
+     * @param request 登录body vo
+     * @return token
+     */
     @PostMapping("/login")
-    public Map<String, String> login(@RequestBody LoginUserRequestVO loginUserRequestVO) {
-        userService.login(loginUserRequestVO);
-        return Map.of("token", JwtUtil.generateToken(userJwtToken, loginUserRequestVO.getUsername()));
+    public Map<String, String> login(
+        @RequestBody final LoginUserRequestVO request
+    ) {
+        userService.login(request);
+        return Map.of(
+            "token", JwtUtil.generateToken(userJwtToken, request.getUsername())
+        );
     }
 }

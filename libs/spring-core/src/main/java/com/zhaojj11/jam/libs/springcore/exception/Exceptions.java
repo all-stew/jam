@@ -5,37 +5,93 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 
 /**
- * 异常方法使用
+ * 异常方法使用.
  *
  * @author zhaojj11
  */
-public class Exceptions {
+public final class Exceptions {
 
     private Exceptions() {
     }
 
-    public static SystemException badRequest(String message, Throwable cause) {
+    /**
+     * 400 error.
+     *
+     * @param message error message
+     * @param cause   case
+     * @return SystemException
+     */
+    public static SystemException badRequest(
+        final String message, final Throwable cause
+    ) {
         return from(HttpStatus.BAD_REQUEST, message, cause);
     }
 
-    public static SystemException unauthorized(String message, Throwable cause) {
+    /**
+     * 401.
+     *
+     * @param message error message
+     * @param cause   case
+     * @return SystemException
+     */
+    public static SystemException unauthorized(
+        final String message, final Throwable cause
+    ) {
         return from(HttpStatus.UNAUTHORIZED, message, cause);
     }
 
-    public static SystemException forbidden(String message, Throwable cause) {
+    /**
+     * 403.
+     *
+     * @param message error message
+     * @param cause   case
+     * @return SystemException
+     */
+    public static SystemException forbidden(
+        final String message, final Throwable cause
+    ) {
         return from(HttpStatus.FORBIDDEN, message, cause);
     }
 
-    public static SystemException notFound(String message, Throwable cause) {
+    /**
+     * 404.
+     *
+     * @param message error message
+     * @param cause   case
+     * @return SystemException
+     */
+    public static SystemException notFound(
+        final String message, final Throwable cause
+    ) {
         return from(HttpStatus.NOT_FOUND, message, cause);
     }
 
-    public static SystemException internalServerError(String message, Throwable cause) {
+    /**
+     * 500.
+     *
+     * @param message error message
+     * @param cause   case
+     * @return SystemException
+     */
+    public static SystemException internalServerError(
+        final String message, final Throwable cause
+    ) {
         return from(HttpStatus.INTERNAL_SERVER_ERROR, message, cause);
     }
 
-    private static SystemException from(HttpStatus httpStatus, String message, Throwable cause) {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(httpStatus, message);
+    /**
+     * from.
+     *
+     * @param httpStatus http status
+     * @param message    error message
+     * @param cause      case
+     * @return SystemException
+     */
+    private static SystemException from(
+        final HttpStatus httpStatus, final String message, final Throwable cause
+    ) {
+        ProblemDetail problemDetail =
+            ProblemDetail.forStatusAndDetail(httpStatus, message);
         problemDetail.setTitle(httpStatus.getReasonPhrase());
         problemDetail.setProperty("timestamp", Instant.now());
         return new SystemException(problemDetail, cause);

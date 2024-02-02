@@ -16,7 +16,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class JwtUtil {
 
     /**
-     * jwt ttl 1小时
+     * jwt ttl 1小时.
      */
     public static final long DEFAULT_TTL = 60 * 60 * 1000L;
 
@@ -24,30 +24,36 @@ public final class JwtUtil {
     }
 
     /**
-     * 生成默认的jwt
+     * 生成默认的jwt.
      *
      * @param secret  密钥
      * @param subject token中需要存放的数据
      * @return jwt
      */
-    public static String generateToken(String secret, String subject) {
-        return getJwtBuilder(secret, subject, DEFAULT_TTL, UUIDUtil.getUUID()).compact();
+    public static String generateToken(
+        final String secret, final String subject
+    ) {
+        return getJwtBuilder(secret, subject, DEFAULT_TTL, UUIDUtil.getUUID())
+            .compact();
     }
 
     /**
-     * 生成指定过期时间的jwt
+     * 生成指定过期时间的jwt.
      *
      * @param secret    密钥
      * @param subject   token中需要存放的数据
      * @param ttlMillis token超时时间
      * @return jwt
      */
-    public static String generateToken(String secret, String subject, long ttlMillis) {
-        return getJwtBuilder(secret, subject, ttlMillis, UUIDUtil.getUUID()).compact();
+    public static String generateToken(
+        final String secret, final String subject, final long ttlMillis
+    ) {
+        return getJwtBuilder(secret, subject, ttlMillis, UUIDUtil.getUUID())
+            .compact();
     }
 
     /**
-     * 生成指定uuid且指定过期时间的jwt
+     * 生成指定uuid且指定过期时间的jwt.
      *
      * @param secret    密钥
      * @param uuid      uuid
@@ -55,11 +61,18 @@ public final class JwtUtil {
      * @param ttlMillis token超时时间
      * @return jwt
      */
-    public static String generateToken(String secret, String uuid, String subject, long ttlMillis) {
-        return getJwtBuilder(secret, subject, ttlMillis, uuid).compact();
+    public static String generateToken(
+        final String secret, final String uuid,
+        final String subject, final long ttlMillis
+    ) {
+        return getJwtBuilder(secret, subject, ttlMillis, uuid)
+            .compact();
     }
 
-    private static JwtBuilder getJwtBuilder(String secret, String subject, long ttlMillis, String uuid) {
+    private static JwtBuilder getJwtBuilder(
+        final String secret, final String subject,
+        final long ttlMillis, final String uuid
+    ) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         SecretKey secretKey = generalKey(secret);
         long nowMillis = System.currentTimeMillis();
@@ -68,39 +81,41 @@ public final class JwtUtil {
         long expMillis = nowMillis + ttlMillis;
         Date expDate = new Date(expMillis);
         return Jwts.builder()
-                // 唯一ID
-                .setId(uuid)
-                // 主题 可以是JSON数据
-                .setSubject(subject)
-                // 签发时间
-                .setIssuedAt(now)
-                // 加密
-                .signWith(signatureAlgorithm, secretKey)
-                // 过期时间
-                .setExpiration(expDate);
+            // 唯一ID
+            .setId(uuid)
+            // 主题 可以是JSON数据
+            .setSubject(subject)
+            // 签发时间
+            .setIssuedAt(now)
+            // 加密
+            .signWith(signatureAlgorithm, secretKey)
+            // 过期时间
+            .setExpiration(expDate);
     }
 
     /**
-     * 生成加密后的密钥 secretKey
+     * 生成加密后的密钥 secretKey.
      *
+     * @param secret secret
      * @return 密钥
      */
-    public static SecretKey generalKey(String secret) {
+    public static SecretKey generalKey(final String secret) {
         byte[] encodedKey = Base64.getDecoder().decode(secret);
         return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
     }
 
     /**
-     * 解析jwt信息
+     * 解析jwt信息.
      *
-     * @param jwt jwt字符串
+     * @param secret secret
+     * @param jwt    jwt字符串
      * @return Claims
      */
-    public static Claims parseJwt(String secret, String jwt) {
+    public static Claims parseJwt(final String secret, final String jwt) {
         return Jwts.parser()
-                .setSigningKey(generalKey(secret))
-                .parseClaimsJws(jwt)
-                .getBody();
+            .setSigningKey(generalKey(secret))
+            .parseClaimsJws(jwt)
+            .getBody();
     }
 }
 

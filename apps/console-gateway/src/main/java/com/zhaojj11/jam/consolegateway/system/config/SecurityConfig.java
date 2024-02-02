@@ -16,8 +16,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+    /**
+     * security filter chain.
+     *
+     * @param httpSecurity httpSecurity
+     * @return chain
+     * @throws Exception
+     */
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain filterChain(
+        final HttpSecurity httpSecurity
+    ) throws Exception {
         httpSecurity
             .csrf().disable()
             .authorizeHttpRequests(
@@ -27,11 +36,24 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
+    /**
+     * authenticationManager.
+     * @param httpSecurity httpSecurity
+     * @return authenticationManager
+     * @throws Exception exception
+     */
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class).build();
+    public AuthenticationManager authenticationManager(
+        final HttpSecurity httpSecurity
+    ) throws Exception {
+        return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class)
+            .build();
     }
 
+    /**
+     * 密码构造器.
+     * @return encoder
+     */
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

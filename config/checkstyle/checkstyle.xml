@@ -50,11 +50,10 @@
     </module>
 
     <!-- https://checkstyle.org/filters/suppressionfilter.html -->
-    <module name="SuppressionFilter">
-        <property name="file" value="${org.checkstyle.sun.suppressionfilter.config}"
-                  default="checkstyle-suppressions.xml"/>
-        <property name="optional" value="true"/>
-    </module>
+    <!--    <module name="SuppressionFilter">-->
+    <!--        <property name="file" value="config/checkstyle/suppressions.xml"/>-->
+    <!--        <property name="optional" value="false"/>-->
+    <!--    </module>-->
 
     <!-- Checks that a package-info.java file exists for each package.     -->
     <!-- See https://checkstyle.org/checks/javadoc/javadocpackage.html#JavadocPackage -->
@@ -102,7 +101,10 @@
         <module name="InvalidJavadocPosition"/>
         <module name="JavadocMethod"/>
         <module name="JavadocType"/>
-        <module name="JavadocVariable"/>
+        <module name="JavadocVariable">
+            <property name="ignoreNamePattern" value=".*(Service|Repository)+"/>
+            <property name="scope" value="protected"/>
+        </module>
         <module name="JavadocStyle"/>
         <module name="MissingJavadocMethod"/>
 
@@ -176,6 +178,7 @@
         <module name="DesignForExtension"/>
         <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
+        <module name="InnerTypeLast"/>
         <module name="InterfaceIsType"/>
         <module name="VisibilityModifier"/>
 
@@ -187,11 +190,7 @@
         <module name="UpperEll"/>
 
         <!-- https://checkstyle.org/filters/suppressionxpathfilter.html -->
-        <module name="SuppressionXpathFilter">
-            <property name="file" value="${org.checkstyle.sun.suppressionxpathfilter.config}"
-                      default="checkstyle-xpath-suppressions.xml"/>
-            <property name="optional" value="true"/>
-        </module>
+        <module name="SuppressionCommentFilter"/>
 
     </module>
 

@@ -9,6 +9,13 @@ import lombok.ToString;
 @Getter
 @ToString
 public class LoginUserRequestVO {
+
+    /**
+     * username.
+     */
     private String username;
+    /**
+     * password.
+     */
     private String password;
 }

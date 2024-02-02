@@ -14,22 +14,24 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
 /**
- * user service 实现
+ * user service 实现.
  *
  * @author zhaojunjie
  */
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class UserServiceImpl extends BaseServiceImpl<UserRepository, User> implements UserService {
+public final class UserServiceImpl
+    extends BaseServiceImpl<UserRepository, User> implements UserService {
 
     private final AuthenticationManager authenticationManager;
 
     @Override
-    public void login(LoginUserRequestVO loginUserRequestVO) {
-        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-            loginUserRequestVO.getUsername(),
-            loginUserRequestVO.getPassword()
-        );
+    public void login(final LoginUserRequestVO loginUserRequestVO) {
+        UsernamePasswordAuthenticationToken token =
+            new UsernamePasswordAuthenticationToken(
+                loginUserRequestVO.getUsername(),
+                loginUserRequestVO.getPassword()
+            );
         try {
             authenticationManager.authenticate(token);
         } catch (AuthenticationException e) {

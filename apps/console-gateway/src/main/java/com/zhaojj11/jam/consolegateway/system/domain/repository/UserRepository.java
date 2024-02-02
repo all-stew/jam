@@ -1,7 +1,7 @@
 package com.zhaojj11.jam.consolegateway.system.domain.repository;
 
 import com.zhaojj11.jam.consolegateway.system.domain.model.User;
-import com.zhaojj11.jam.libs.jpa.dao.BaseRepository;
+import com.zhaojj11.jam.libs.jpa.repository.BaseRepository;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends BaseRepository<User> {
 
     /**
-     * 根据用户名查询user
+     * 根据用户名查询user.
      *
      * @param username 用户名
      * @return user

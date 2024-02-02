@@ -12,17 +12,21 @@ import org.springframework.stereotype.Service;
  * @author zhaojj11
  */
 @Service
-public class UserDetailServiceImpl implements UserDetailsService {
+public final class UserDetailServiceImpl implements UserDetailsService {
 
     @Resource
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(
+        final String username
+    ) throws UsernameNotFoundException {
         return userRepository
             .findByUsername(username)
             .orElseThrow(
-                () -> new UsernameNotFoundException("invalid username or password")
+                () -> new UsernameNotFoundException(
+                    "invalid username or password"
+                )
             );
     }
 }

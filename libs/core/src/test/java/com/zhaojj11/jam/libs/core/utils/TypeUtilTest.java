@@ -16,10 +16,13 @@ class TypeUtilTest {
 
     @Test
     void transformLongAndLocalDateTime() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter dateTimeFormatter =
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         long epochSecond = TypeUtil.toLong(now);
         LocalDateTime time = TypeUtil.toLocalDateTime(epochSecond);
-        Assertions.assertEquals(dateTimeFormatter.format(now), dateTimeFormatter.format(time));
+        Assertions.assertEquals(
+            dateTimeFormatter.format(now), dateTimeFormatter.format(time)
+        );
     }
 }

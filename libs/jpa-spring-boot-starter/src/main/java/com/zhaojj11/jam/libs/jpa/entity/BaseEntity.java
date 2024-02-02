@@ -37,10 +37,10 @@ public class BaseEntity {
     private LocalDateTime updatedTime;
 
     /**
-     * 逻辑删除字段 0-未删除 1-已删除.
+     * 逻辑删除字段 可空. 被删除后需要修改为删除时间
      */
     @Column
-    private Integer isDeleted;
+    private LocalDateTime deletedTime;
 
     /**
      * 备注.
