@@ -1,4 +1,4 @@
-package com.zhaojj11.jam.consolegateway.system.domain.model;
+package com.zhaojj11.jam.consolegateway.domain.model;
 
 import com.zhaojj11.jam.libs.jpa.entity.BaseEntity;
 import jakarta.persistence.Column;

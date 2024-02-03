@@ -1,8 +1,9 @@
 package com.zhaojj11.jam.consolegateway.system.service.impl;
 
-import com.zhaojj11.jam.consolegateway.system.domain.model.User;
-import com.zhaojj11.jam.consolegateway.system.domain.repository.UserRepository;
-import com.zhaojj11.jam.consolegateway.system.service.UserService;
+import com.zhaojj11.jam.consolegateway.domain.model.User;
+import com.zhaojj11.jam.consolegateway.domain.repository.UserRepository;
+import com.zhaojj11.jam.consolegateway.service.UserService;
+import com.zhaojj11.jam.consolegateway.service.impl.UserServiceImpl;
 import jakarta.annotation.Resource;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;

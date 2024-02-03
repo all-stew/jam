@@ -1,6 +1,6 @@
-package com.zhaojj11.jam.consolegateway.system.domain.repository;
+package com.zhaojj11.jam.consolegateway.domain.repository;
 
-import com.zhaojj11.jam.consolegateway.system.domain.model.User;
+import com.zhaojj11.jam.consolegateway.domain.model.User;
 import com.zhaojj11.jam.libs.jpa.repository.BaseRepository;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;

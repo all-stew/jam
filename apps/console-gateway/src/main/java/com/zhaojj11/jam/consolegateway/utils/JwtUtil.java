@@ -1,4 +1,4 @@
-package com.zhaojj11.jam.consolegateway.system.utils;
+package com.zhaojj11.jam.consolegateway.utils;
 
 import com.zhaojj11.jam.libs.core.utils.UUIDUtil;
 import io.jsonwebtoken.Claims;

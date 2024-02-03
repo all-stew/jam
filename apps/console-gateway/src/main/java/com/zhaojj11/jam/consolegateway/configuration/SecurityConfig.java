@@ -1,4 +1,4 @@
-package com.zhaojj11.jam.consolegateway.system.config;
+package com.zhaojj11.jam.consolegateway.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

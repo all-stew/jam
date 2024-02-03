@@ -1,6 +1,6 @@
-package com.zhaojj11.jam.consolegateway.system.service.impl;
+package com.zhaojj11.jam.consolegateway.service.impl;
 
-import com.zhaojj11.jam.consolegateway.system.domain.repository.UserRepository;
+import com.zhaojj11.jam.consolegateway.domain.repository.UserRepository;
 import jakarta.annotation.Resource;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

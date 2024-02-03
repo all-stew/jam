@@ -3,6 +3,7 @@ package com.zhaojj11.jam.consolegateway.system.utils;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.zhaojj11.jam.consolegateway.utils.JwtUtil;
 import com.zhaojj11.jam.libs.core.utils.UUIDUtil;
 import io.jsonwebtoken.Claims;
 import javax.crypto.SecretKey;

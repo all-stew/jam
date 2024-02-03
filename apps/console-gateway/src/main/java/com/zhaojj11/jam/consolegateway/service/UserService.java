@@ -1,7 +1,7 @@
-package com.zhaojj11.jam.consolegateway.system.service;
+package com.zhaojj11.jam.consolegateway.service;
 
-import com.zhaojj11.jam.consolegateway.system.domain.model.User;
-import com.zhaojj11.jam.consolegateway.system.entity.vo.request.LoginUserRequestVO;
+import com.zhaojj11.jam.consolegateway.controller.entity.request.LoginUserRequestVO;
+import com.zhaojj11.jam.consolegateway.domain.model.User;
 import com.zhaojj11.jam.libs.jpa.service.BaseService;
 
 /**

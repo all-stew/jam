@@ -1,4 +1,4 @@
-package com.zhaojj11.jam.consolegateway.system.entity.vo.request;
+package com.zhaojj11.jam.consolegateway.controller.entity.request;
 
 import lombok.Getter;
 import lombok.ToString;

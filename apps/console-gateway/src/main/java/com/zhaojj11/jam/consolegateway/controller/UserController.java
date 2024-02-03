@@ -1,9 +1,9 @@
-package com.zhaojj11.jam.consolegateway.system.controller;
+package com.zhaojj11.jam.consolegateway.controller;
 
-import com.zhaojj11.jam.consolegateway.system.domain.model.User;
-import com.zhaojj11.jam.consolegateway.system.entity.vo.request.LoginUserRequestVO;
-import com.zhaojj11.jam.consolegateway.system.service.UserService;
-import com.zhaojj11.jam.consolegateway.system.utils.JwtUtil;
+import com.zhaojj11.jam.consolegateway.controller.entity.request.LoginUserRequestVO;
+import com.zhaojj11.jam.consolegateway.domain.model.User;
+import com.zhaojj11.jam.consolegateway.service.UserService;
+import com.zhaojj11.jam.consolegateway.utils.JwtUtil;
 import com.zhaojj11.jam.libs.springcore.exception.Exceptions;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
