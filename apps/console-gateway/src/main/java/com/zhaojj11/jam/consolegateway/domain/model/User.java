@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import lombok.EqualsAndHashCode;
@@ -22,9 +22,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 @Getter
 @Setter
-@Table(name = "user")
+@Table(name = "users")
 @EqualsAndHashCode(callSuper = true)
-public class User extends BaseEntity implements UserDetails {
+public class User extends BaseEntity implements UserDetails, Serializable {
 
     /**
      * 主键.
@@ -55,49 +55,10 @@ public class User extends BaseEntity implements UserDetails {
     private String salt;
 
     /**
-     * 身份证号.
-     */
-    @Column
-    private String idCard;
-
-
-    /**
-     * 邮箱.
-     */
-    @Column
-    private String email;
-
-
-    /**
-     * 电话.
-     */
-    @Column
-    private String phone;
-
-
-    /**
-     * 生日.
-     */
-    @Column
-    private LocalDateTime birthday;
-
-    /**
-     * 年龄.
-     */
-    @Column
-    private Integer age;
-
-    /**
      * 状态 1-正常 2-禁用.
      */
     @Column
     private Integer status;
-
-    /**
-     * 上次登录时间.
-     */
-    @Column
-    private LocalDateTime lastLogin;
 
     /**
      * to string.
@@ -111,13 +72,7 @@ public class User extends BaseEntity implements UserDetails {
             + ", username='" + username + '\''
             + ", gender=" + gender
             + ", password='" + password + '\''
-            + ", idCard='" + idCard + '\''
-            + ", email='" + email + '\''
-            + ", phone='" + phone + '\''
-            + ", birthday=" + birthday
-            + ", age=" + age
             + ", status=" + status
-            + ", lastLogin=" + lastLogin
             + "} "
             + super.toString();
     }
