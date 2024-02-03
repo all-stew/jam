@@ -13,37 +13,37 @@ import lombok.Getter;
 public class BaseEntity {
 
     /**
-     * 创建人
+     * 创建人.
      */
     @Column
     private Long createdBy;
 
     /**
-     * 创建时间
+     * 创建时间.
      */
     @Column
     private LocalDateTime createdTime;
 
     /**
-     * 修改人
+     * 修改人.
      */
     @Column
     private Long updatedBy;
 
     /**
-     * 修改时间
+     * 修改时间.
      */
     @Column
     private LocalDateTime updatedTime;
 
     /**
-     * 逻辑删除字段 0-未删除 1-已删除
+     * 逻辑删除字段 可空. 被删除后需要修改为删除时间
      */
     @Column
-    private Integer isDeleted;
+    private LocalDateTime deletedTime;
 
     /**
-     * 备注
+     * 备注.
      */
     @Column
     private String remark;

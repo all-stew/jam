@@ -6,13 +6,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * open api config
+ * open api config.
  *
  * @author zhaojj11
  */
 @Configuration
 public class OpenApiConfig {
 
+    /**
+     * api config.
+     *
+     * @return {@link OpenAPI}
+     */
     @Bean
     public OpenAPI springOpenApi() {
         return new OpenAPI().info(new Info()

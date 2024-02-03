@@ -1,8 +1,9 @@
 package com.zhaojj11.jam.consolegateway.system.service.impl;
 
-import com.zhaojj11.jam.consolegateway.system.domain.model.User;
-import com.zhaojj11.jam.consolegateway.system.domain.repository.UserRepository;
-import com.zhaojj11.jam.consolegateway.system.service.UserService;
+import com.zhaojj11.jam.consolegateway.domain.model.User;
+import com.zhaojj11.jam.consolegateway.domain.repository.UserRepository;
+import com.zhaojj11.jam.consolegateway.service.UserService;
+import com.zhaojj11.jam.consolegateway.service.impl.UserServiceImpl;
 import jakarta.annotation.Resource;
 import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +20,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @Import({UserServiceImpl.class})
 @ExtendWith(SpringExtension.class)
 class UserServiceImplTest {
-    public static User userData;
+
+    /**
+     * 单元测试时的数据暂存.
+     */
+    private static User userData;
     @Resource
     private UserService userService;
     @MockBean
@@ -35,14 +40,16 @@ class UserServiceImplTest {
 
     @Test
     void testFindByIdReturnNull() {
-        Mockito.when(userRepository.findById(ArgumentMatchers.any(Long.class))).thenReturn(Optional.empty());
+        Mockito.when(userRepository.findById(ArgumentMatchers.any(Long.class)))
+            .thenReturn(Optional.empty());
         User user = userService.findById(1L);
         Assertions.assertNull(user);
     }
 
     @Test
     void testFindByIdReturnNotNull() {
-        Mockito.when(userRepository.findById(ArgumentMatchers.any(Long.class))).thenReturn(Optional.of(userData));
+        Mockito.when(userRepository.findById(ArgumentMatchers.any(Long.class)))
+            .thenReturn(Optional.of(userData));
         User user = userService.findById(1L);
         Assertions.assertNotNull(user);
     }

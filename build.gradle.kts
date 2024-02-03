@@ -1,29 +1,37 @@
 tasks.register("clean") {
     group = "build"
-    description = "clean all apps"
-    dependsOn(gradle.includedBuild("apps").task(":console-gateway:clean"))
+    description = "clean all"
+    dependsOn(gradle.includedBuild("libs").task(":clean"))
+    dependsOn(gradle.includedBuild("apps").task(":clean"))
 }
 
 tasks.register("build") {
     group = "build"
-    description = "Build all apps"
-    dependsOn(gradle.includedBuild("apps").task(":console-gateway:build"))
+    description = "Build all"
+    dependsOn(gradle.includedBuild("libs").task(":build"))
+    dependsOn(gradle.includedBuild("apps").task(":build"))
+}
+
+tasks.register("checkstyle") {
+    group = "build"
+    description = "check style"
+    dependsOn(gradle.includedBuild("libs").task(":checkstyle"))
+    dependsOn(gradle.includedBuild("apps").task(":checkstyle"))
 }
 
 
-// This is an example of a lifecycle task that crosses build boundaries defined in the umbrella build.
 tasks.register("test") {
     group = "verification"
     description = "Run all tests"
-    dependsOn(gradle.includedBuild("libs").task(":core:test"))
-    dependsOn(gradle.includedBuild("apps").task(":console-gateway:test"))
+    dependsOn(gradle.includedBuild("libs").task(":test"))
+    dependsOn(gradle.includedBuild("apps").task(":test"))
 }
 
 tasks.register("sonar") {
     group = "verification"
     description = "send to sonar"
-    dependsOn(gradle.includedBuild("libs").task(":core:test"))
-    dependsOn(gradle.includedBuild("apps").task(":console-gateway:sonar"))
+    dependsOn(gradle.includedBuild("libs").task(":sonar"))
+    dependsOn(gradle.includedBuild("apps").task(":sonar"))
 }
 
 

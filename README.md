@@ -11,3 +11,9 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=all-stew_jam&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=all-stew_jam)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=all-stew_jam&metric=coverage)](https://sonarcloud.io/summary/new_code?id=all-stew_jam)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=all-stew_jam&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=all-stew_jam)
+
+## 1. 开发须知
+
+### 1.1. 如何构建本地环境
+
+### 1.2. 如何使用checkstyle

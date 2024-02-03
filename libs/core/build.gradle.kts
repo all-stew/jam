@@ -3,7 +3,14 @@ plugins {
     id("com.zhaojj11.jam.java-library")
     id("io.freefair.lombok") version "6.5.1"
     id("org.sonarqube") version ("3.5.0.2730")
+    id("checkstyle")
 }
+
+checkstyle {
+    toolVersion = "10.12.5"
+    configFile = file("../../config/checkstyle/checkstyle.xml")
+}
+
 
 sonarqube {
     properties {

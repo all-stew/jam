@@ -11,11 +11,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Analyze on SonarCloud
-          command: chmod +x gradlew && ./gradlew build sonar
+          name: build
+          command: chmod +x gradlew && ./gradlew clean build
       - run:
-          name: Upload Coverage Report to SonarCloud
-          command: chmod +x gradlew && ./gradlew test sonar
+          name: checkstyle
+          command: chmod +x gradlew && ./gradlew checkstyle
+      - run:
+          name: test
+          command: chmod +x gradlew && ./gradlew test
+      - run:
+          name: sonar cloud
+          command: chmod +x gradlew && ./gradlew sonar
     environment:
       _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -Xms1000m -Xmx1436m -XX:MaxMetaspaceSize=1436m -XX:ParallelGCThreads=1 -XX:ConcGCThreads=1 -Djava.util.concurrent.ForkJoinPool.common.parallelism=2"
       GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx1500m -XX:+HeapDumpOnOutOfMemoryError" -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=1 -Dorg.gradle.parallel=false -DdisablePreDex'
