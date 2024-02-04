@@ -1,15 +1,19 @@
 package com.zhaojj11.jam.consolegateway.domain.model;
 
 import com.zhaojj11.jam.libs.jpa.entity.BaseEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +35,7 @@ public class User extends BaseEntity implements UserDetails, Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     /**
      * 用户名.
@@ -58,7 +62,23 @@ public class User extends BaseEntity implements UserDetails, Serializable {
      * 状态 1-正常 2-禁用.
      */
     @Column
-    private Integer status;
+    private Status status;
+
+    /**
+     * 用户角色.
+     */
+    @ManyToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    private List<Role> roles;
+
+    /**
+     * getAuthorities.
+     *
+     * @return list
+     */
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.emptyList();
+    }
 
     /**
      * to string.
@@ -78,16 +98,8 @@ public class User extends BaseEntity implements UserDetails, Serializable {
     }
 
     /**
-     * getAuthorities.
-     * @return list
-     */
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
-    }
-
-    /**
      * isAccountNonExpired.
+     *
      * @return isAccountNonExpired
      */
     @Override
@@ -97,6 +109,7 @@ public class User extends BaseEntity implements UserDetails, Serializable {
 
     /**
      * isAccountNonLocked.
+     *
      * @return isAccountNonLocked
      */
     @Override
@@ -106,6 +119,7 @@ public class User extends BaseEntity implements UserDetails, Serializable {
 
     /**
      * isCredentialsNonExpired.
+     *
      * @return isCredentialsNonExpired
      */
     @Override
@@ -115,10 +129,37 @@ public class User extends BaseEntity implements UserDetails, Serializable {
 
     /**
      * isEnabled.
+     *
      * @return isEnabled
      */
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Getter
+    public enum Status {
+        /**
+         * 正常.
+         */
+        ENABLED((byte) 1),
+        /**
+         * 禁用.
+         */
+        DISABLED((byte) 2);
+
+        /**
+         * value.
+         */
+        private final byte value;
+
+        /**
+         * constructor.
+         *
+         * @param v value
+         */
+        Status(final byte v) {
+            this.value = v;
+        }
     }
 }

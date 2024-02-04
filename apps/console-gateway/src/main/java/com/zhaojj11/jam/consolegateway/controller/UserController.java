@@ -27,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 public final class UserController {
 
     private final UserService userService;
+    /**
+     * jwt token.
+     */
     @Value("${user-jwt-token:test}")
     private String userJwtToken;
 
