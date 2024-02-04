@@ -25,7 +25,7 @@ public interface BaseRepository<T extends BaseEntity>
     /**
      * logic delete by id.
      *
-     * @param id id
+     * @param id          id
      * @param deletedTime 被删除时间
      */
     @Query("update #{#entityName} t set t.deletedTime = ?2 where t.id = ?1")
@@ -38,7 +38,7 @@ public interface BaseRepository<T extends BaseEntity>
      *
      * @return 实体列表
      */
-    @Query("select t from #{#entityName} t where t.isDeleted = 0")
+    @Query("select t from #{#entityName} t where t.deletedTime is null")
     @Transactional(readOnly = true)
     @Nonnull
     @Override
@@ -51,7 +51,8 @@ public interface BaseRepository<T extends BaseEntity>
      * @return 实体
      */
     @Query(
-        "select t from #{#entityName} t where t.id = ?1 and t.isDeleted != null"
+        "select t from #{#entityName} t "
+            + "where t.id = ?1 and t.deletedTime is not null"
     )
     @Transactional(readOnly = true)
     @Nonnull
