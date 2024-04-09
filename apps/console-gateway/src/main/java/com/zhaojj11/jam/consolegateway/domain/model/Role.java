@@ -6,11 +6,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -36,50 +35,40 @@ public class Role extends BaseEntity implements Serializable {
      * 角色名称.
      */
     @Column
-    private String role;
-    /**
-     * 角色描述.
-     */
-    @Column
-    private String description;
+    private String name;
     /**
      * 状态.
      */
     @Column
     private Status status;
+    /**
+     * 角色描述.
+     */
+    @Column
+    private String description;
 
     /**
-     * pemissions.
+     * userRoles.
      */
-    @ManyToMany
-    @JoinTable(
-        name = "RolePermissions",
-        joinColumns = {@JoinColumn(name = "roleId")},
-        inverseJoinColumns = {@JoinColumn(name = "permissionId")}
-    )
-    private List<Permission> permissions;
+    @OneToMany(mappedBy = "role")
+    private List<UserRole> userRoles = new ArrayList<>();
 
     /**
-     * users.
+     * roleMenus.
      */
-    @ManyToMany
-    @JoinTable(
-        name = "UserRoles",
-        joinColumns = {@JoinColumn(name = "roleId")},
-        inverseJoinColumns = {@JoinColumn(name = "userId")}
-    )
-    private List<User> users;
+    @OneToMany(mappedBy = "role")
+    private List<RoleMenu> roleMenus = new ArrayList<>();
 
     @Getter
     public enum Status {
         /**
          * 正常.
          */
-        ENABLED((byte) 1),
+        ENABLED((byte) 0),
         /**
          * 禁用.
          */
-        DISABLED((byte) 2);
+        DISABLED((byte) 1);
         /**
          * value.
          */
