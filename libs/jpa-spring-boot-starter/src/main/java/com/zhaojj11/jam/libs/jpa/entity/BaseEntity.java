@@ -41,10 +41,4 @@ public class BaseEntity {
      */
     @Column
     private LocalDateTime deletedTime;
-
-    /**
-     * 备注.
-     */
-    @Column
-    private String remark;
 }
