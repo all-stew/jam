@@ -23,6 +23,9 @@ import org.springframework.stereotype.Service;
 public final class UserServiceImpl
     extends BaseServiceImpl<UserRepository, User> implements UserService {
 
+    /**
+     * 认证服务.
+     */
     private final AuthenticationManager authenticationManager;
 
     @Override
