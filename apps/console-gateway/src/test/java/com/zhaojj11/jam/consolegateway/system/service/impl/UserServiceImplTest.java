@@ -25,10 +25,19 @@ class UserServiceImplTest {
      * 单元测试时的数据暂存.
      */
     private static User userData;
+    /**
+     * userService.
+     */
     @Resource
     private UserService userService;
+    /**
+     * 认证服务.
+     */
     @MockBean
     private AuthenticationManager authenticationManager;
+    /**
+     * userRepository.
+     */
     @MockBean
     private UserRepository userRepository;
 
