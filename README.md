@@ -17,3 +17,10 @@
 ### 1.1. 如何构建本地环境
 
 ### 1.2. 如何使用checkstyle
+
+### 1.3. 更新pre-commit
+
+```shell
+cd .sh
+./replace-pre-commit.sh
+```
