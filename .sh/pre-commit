@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# 运行 gradlew clean
+./gradlew clean
+
+# 检查 gradlew clean 是否成功执行
+if [ $? -ne 0 ]; then
+  echo "gradlew clean 失败，终止提交。"
+  exit 1
+fi
+
+./gradlew checkstyle
+# 检查 gradlew checkstyle 是否成功执行
+if [ $? -ne 0 ]; then
+  echo "gradlew checkstyle 失败，终止提交。"
+  exit 1
+fi
+
+./gradlew build
+# 检查 gradlew build 是否成功执行
+if [ $? -ne 0 ]; then
+  echo "gradlew build 失败，终止提交。"
+  exit 1
+fi
+
+./gradlew test
+# 检查 gradlew test 是否成功执行
+if [ $? -ne 0 ]; then
+  echo "gradlew test 失败，终止提交。"
+  exit 1
+fi
+
+# 如果 gradlew clean 成功执行，允许提交
+exit 0
