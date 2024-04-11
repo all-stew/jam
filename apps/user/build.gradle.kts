@@ -33,12 +33,21 @@ dependencies {
     implementation("com.zhaojj11.jam.libs:core")
     implementation("com.zhaojj11.jam.libs:spring-core")
     implementation("com.zhaojj11.jam.libs:jpa-spring-boot-starter")
+    implementation("com.zhaojj11.jam.protobuf:user")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("javax.xml.bind:jaxb-api:2.3.0")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
+
+    implementation("com.google.protobuf:protobuf-java")
+    implementation("com.google.protobuf:protobuf-java-util")
+    implementation("io.grpc:grpc-core")
+    implementation("io.grpc:grpc-stub")
+    implementation("io.grpc:grpc-netty-shaded")
+    implementation("io.grpc:grpc-services")
+    implementation("io.grpc:grpc-protobuf")
 
     implementation("mysql:mysql-connector-java")
 
