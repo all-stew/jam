@@ -8,12 +8,12 @@ option java_outer_classname = "UserProto";
 option java_package = "com.zhaojj11.jam.protobuf.user.v1";
 
 service UserService {
-  rpc Test(TestRequest) returns (TestResponse){}
+  rpc GetTest(GetTestRequest) returns (GetTestResponse){}
 }
 
-message TestRequest {
+message GetTestRequest {
   uint64 id = 1;
 }
-message TestResponse{
+message GetTestResponse{
   uint64 id = 1;
 }

@@ -1,7 +1,7 @@
 package com.zhaojj11.jam.user.api.grpc;
 
-import com.zhaojj11.jam.protobuf.user.v1.TestRequest;
-import com.zhaojj11.jam.protobuf.user.v1.TestResponse;
+import com.zhaojj11.jam.protobuf.user.v1.GetTestRequest;
+import com.zhaojj11.jam.protobuf.user.v1.GetTestResponse;
 import com.zhaojj11.jam.protobuf.user.v1.UserServiceGrpc.UserServiceImplBase;
 import io.grpc.stub.StreamObserver;
 
@@ -11,10 +11,12 @@ import io.grpc.stub.StreamObserver;
 public final class UserGrpcService extends UserServiceImplBase {
 
     @Override
-    public void test(
-        final TestRequest request,
-        final StreamObserver<TestResponse> responseObserver
+    public void getTest(
+        final GetTestRequest request,
+        final StreamObserver<GetTestResponse> responseObserver
     ) {
-        super.test(request, responseObserver);
+
+        responseObserver.onNext(GetTestResponse.newBuilder().setId(1).build());
+        responseObserver.onCompleted();
     }
 }
