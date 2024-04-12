@@ -1,6 +1,6 @@
 plugins {
     id("jacoco")
-    id("io.freefair.lombok") version "6.5.1"
+    id("io.freefair.lombok") version "8.6"
     id("com.zhaojj11.jam.spring-boot-application")
     id("org.sonarqube") version "3.5.0.2730"
     id("checkstyle")
@@ -28,7 +28,6 @@ repositories {
 }
 
 dependencies {
-    implementation(enforcedPlatform("org.springframework.boot:spring-boot-dependencies:3.0.0"))
 
     implementation("com.zhaojj11.jam.libs:core")
     implementation("com.zhaojj11.jam.libs:spring-core")
@@ -41,7 +40,7 @@ dependencies {
     implementation("javax.xml.bind:jaxb-api:2.3.0")
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
-    implementation("mysql:mysql-connector-java")
+    runtimeOnly("mysql:mysql-connector-java")
 
     implementation("io.jsonwebtoken:jjwt:0.9.0")
 

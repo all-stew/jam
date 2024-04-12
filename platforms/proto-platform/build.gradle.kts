@@ -7,7 +7,7 @@ group = "com.zhaojj11.jam.platform"
 javaPlatform.allowDependencies()
 
 dependencies {
-    api(platform("io.grpc:grpc-bom:1.59.1"))
+    api(platform("io.grpc:grpc-bom:1.60.1"))
     api(platform("com.google.protobuf:protobuf-bom:3.25.1"))
 
     constraints {

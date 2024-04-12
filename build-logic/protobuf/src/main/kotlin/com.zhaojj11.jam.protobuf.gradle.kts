@@ -37,7 +37,7 @@ protobuf {
     plugins {
         register("grpc") {
             if (System.getenv("PROTO_BINARY_USE_LOCAL") != "true") {
-                artifact = "io.grpc:protoc-gen-grpc-java:1.59.1"
+                artifact = "io.grpc:protoc-gen-grpc-java:1.60.1"
                 repositories {
                     mavenCentral()
                 }
