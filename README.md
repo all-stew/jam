@@ -12,15 +12,26 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=all-stew_jam&metric=coverage)](https://sonarcloud.io/summary/new_code?id=all-stew_jam)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=all-stew_jam&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=all-stew_jam)
 
-## 1. 开发须知
+## 1 开发须知
 
-### 1.1. 如何构建本地环境
+### 1.1 如何构建本地环境
 
-### 1.2. 如何使用checkstyle
+### 1.2 如何使用checkstyle
 
-### 1.3. 更新pre-commit
+### 1.3 更新pre-commit
 
 ```shell
 cd .sh
 ./replace-pre-commit.sh
+```
+
+### 1.4 如何使用subtree构建proto
+
+```shell
+# 初始化
+git subtree add --prefix=proto https://github.com/all-stew/proto feat --squash
+# 拉取
+git subtree pull  --prefix=proto https://github.com/all-stew/proto feat --squash
+# 推到远端
+git subtree push --prefix=proto https://github.com/all-stew/proto feat
 ```

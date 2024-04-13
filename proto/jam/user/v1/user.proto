@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package jam.user.v1;
+
+option go_package = "github.com/jam/server/utils/genproto-go/jam/user/v1;user";
+option java_multiple_files = true;
+option java_outer_classname = "UserProto";
+option java_package = "com.zhaojj11.jam.protobuf.user.v1";
+
+service UserService {
+  rpc GetTest(GetTestRequest) returns (GetTestResponse){}
+}
+
+message GetTestRequest {
+  uint64 id = 1;
+}
+message GetTestResponse{
+  uint64 id = 1;
+}

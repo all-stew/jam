@@ -52,7 +52,7 @@ CREATE TABLE `menus`
     `id`               BIGINT UNSIGNED AUTO_INCREMENT         NOT NULL,
     `name`             VARCHAR(30)                            NOT NULL COMMENT '角色名称',
     `parent_id`        BIGINT       default 0                 NOT NULL comment '父菜单ID',
-    `order_num`        tinyint      default 0                 NOT NULL comment '显示顺序',
+    `order_num` INT default 0 NOT NULL comment '显示顺序',
     `path`             varchar(200) default ''                NOT NULL comment '路由地址',
     `component`        varchar(255) default ''                NOT NULL comment '组件路径',
     `query`            varchar(255) default ''                NOT NULL comment '路由参数',

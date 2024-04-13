@@ -1,8 +1,8 @@
 plugins {
     id("jacoco")
     id("com.zhaojj11.jam.java-library")
-    id("io.freefair.lombok") version "6.5.1"
-    id("org.sonarqube") version ("3.5.0.2730")
+    id("io.freefair.lombok") version "8.6"
+    id("org.sonarqube") version "4.0.0.2929"
     id("checkstyle")
 }
 
