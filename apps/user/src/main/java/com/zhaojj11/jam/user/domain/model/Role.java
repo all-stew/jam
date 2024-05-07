@@ -53,12 +53,6 @@ public class Role extends BaseEntity implements Serializable {
     @OneToMany(mappedBy = "role")
     private List<UserRole> userRoles = new ArrayList<>();
 
-    /**
-     * roleMenus.
-     */
-    @OneToMany(mappedBy = "role")
-    private List<RoleMenu> roleMenus = new ArrayList<>();
-
     @Getter
     public enum Status {
         /**
@@ -83,6 +77,4 @@ public class Role extends BaseEntity implements Serializable {
             this.value = v;
         }
     }
-
-
 }
