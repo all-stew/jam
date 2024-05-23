@@ -20,26 +20,6 @@ public final class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserDto getInfo(final long id) {
-        return null;
-    }
-
-    @Override
-    public void register(final UserDto userDto) {
-
-    }
-
-    @Override
-    public void update(final UserDto userDto) {
-
-    }
-
-    @Override
-    public void resetPassword(final UserDto userDto) {
-
-    }
-
-    @Override
     public @Nullable UserDto getByUsername(@Nonnull final String username) {
         Optional<User> userOptional = userRepository.findByUsername(username);
         return userOptional

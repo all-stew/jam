@@ -4,10 +4,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author zhaojj11
  */
+@Setter
 @Getter
 @MappedSuperclass
 public class BaseEntity {
