@@ -42,3 +42,12 @@ out/
 ### config ###
 **/application-*.yaml
 !**/**.sample.yaml
+
+### docket-dev ###
+docker-dev/mysql/data/
+!docker-dev/mysql/data/README.md
+docker-dev/mysql/log/
+!docker-dev/mysql/log/README.md
+
+docker-dev/redis/data/
+!docker-dev/redis/data/README.md
