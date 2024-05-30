@@ -1,5 +1,7 @@
 package com.zhaojj11.jam.user.domain.dto;
 
+import com.zhaojj11.jam.user.domain.model.User.Status;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,14 +18,22 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class LoginUserDto {
 
     /**
      * id.
      */
-    private long userId;
+    private long id;
     /**
      * username.
      */
     private String username;
+    /**
+     * status.
+     */
+    private Status status;
+    /**
+     * roles.
+     */
+    private Set<String> roles;
 }

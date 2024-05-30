@@ -1,6 +1,6 @@
 package com.zhaojj11.jam.user.service;
 
-import com.zhaojj11.jam.user.domain.dto.UserDto;
+import com.zhaojj11.jam.user.domain.dto.LoginUserDto;
 import java.util.List;
 
 /**
@@ -15,21 +15,21 @@ public interface UserManagementService {
      *
      * @return user李彪
      */
-    List<UserDto> list();
+    List<LoginUserDto> list();
 
     /**
      * 新增用户.
      *
      * @param userDto 用户信息
      */
-    void addUser(UserDto userDto);
+    void addUser(LoginUserDto userDto);
 
     /**
      * 更新用户信息.
      *
      * @param userDto 用户信息
      */
-    void updateUser(UserDto userDto);
+    void updateUser(LoginUserDto userDto);
 
     /**
      * 删除用户.

@@ -1,6 +1,6 @@
 package com.zhaojj11.jam.user.service.impl;
 
-import com.zhaojj11.jam.user.domain.dto.UserDto;
+import com.zhaojj11.jam.user.domain.dto.LoginUserDto;
 import com.zhaojj11.jam.user.domain.model.User;
 import com.zhaojj11.jam.user.domain.model.User.Status;
 import com.zhaojj11.jam.user.domain.repository.UserRepository;
@@ -46,7 +46,7 @@ class UserServiceImplTest {
         Mockito.when(
             userRepository.findByUsername(ArgumentMatchers.any(String.class))
         ).thenReturn(Optional.empty());
-        UserDto userDto = userService.getByUsername("test");
+        LoginUserDto userDto = userService.getLoginUserByUsername("test");
         Assertions.assertNull(userDto);
     }
 
@@ -55,7 +55,7 @@ class UserServiceImplTest {
         Mockito.when(
             userRepository.findByUsername(ArgumentMatchers.any(String.class))
         ).thenReturn(Optional.of(userData));
-        UserDto userDto = userService.getByUsername("test");
+        LoginUserDto userDto = userService.getLoginUserByUsername("test");
         Assertions.assertNotNull(userDto);
     }
 }

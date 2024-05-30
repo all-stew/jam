@@ -2,6 +2,7 @@ package com.zhaojj11.jam.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * 启动器.
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 //CHECKSTYLE:OFF: checkstyle:HideUtilityClassConstructor
 @SpringBootApplication
+@EnableJpaAuditing
 public class UserApplication {
 
     public static void main(String[] args) {
