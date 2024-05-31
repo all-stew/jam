@@ -44,7 +44,7 @@ public final class UserServiceImpl implements UserService {
         String mixed = password + uuidSalt;
 
         // 3. 将混合后的字符串 MD5
-        String passwordMd5 = DigestUtils.md5Hex(mixed);
+        String passwordMd5 = DigestUtils.sha256Hex(mixed);
 
         // 4. 构建user 并且保存
         userRepository.save(User.builder()
