@@ -13,7 +13,7 @@ public interface UserManagementService {
     /**
      * 分页查询用户信息.
      *
-     * @return user李彪
+     * @return user列表
      */
     List<LoginUserDto> list();
 
