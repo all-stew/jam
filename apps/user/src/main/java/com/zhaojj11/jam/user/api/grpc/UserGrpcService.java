@@ -15,6 +15,7 @@ import io.grpc.stub.StreamObserver;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -56,6 +57,17 @@ public final class UserGrpcService extends UserServiceImplBase {
     ) {
         String username = request.getUsername();
         String password = request.getPassword();
+
+        if (StringUtils.isNotBlank(username)
+            || StringUtils.isNotBlank(password)
+        ) {
+            responseObserver.onError(
+                Status.INVALID_ARGUMENT
+                    .withDescription("username or password is empty")
+                    .asException()
+            );
+            return;
+        }
 
         // 注册时需要确保用户名唯一
         Optional<User> userOptional = userRepository.findByUsername(username);
