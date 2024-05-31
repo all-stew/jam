@@ -1,7 +1,7 @@
 package com.zhaojj11.jam.user.domain.transformer;
 
-import com.zhaojj11.jam.protobuf.user.v1.UserInfo;
-import com.zhaojj11.jam.user.domain.dto.UserDto;
+import com.zhaojj11.jam.protobuf.user.v1.LoginUser;
+import com.zhaojj11.jam.user.domain.dto.LoginUserDto;
 import com.zhaojj11.jam.user.domain.model.Role;
 import com.zhaojj11.jam.user.domain.model.User;
 import java.util.HashSet;
@@ -13,10 +13,10 @@ public interface UserTransformer {
      * 从 dto 转换到 proto.
      *
      * @param userDto userDto
-     * @return UserInfo proto
+     * @return LoginUser proto
      */
-    static UserInfo toProto(final UserDto userDto) {
-        return UserInfo.newBuilder()
+    static LoginUser toProto(final LoginUserDto userDto) {
+        return LoginUser.newBuilder()
             .setUserId(userDto.getId())
             .setUsername(userDto.getUsername())
             .addAllRoles(userDto.getRoles())
@@ -30,8 +30,8 @@ public interface UserTransformer {
      * @param roleList role
      * @return UserDto dto
      */
-    static UserDto fromPojo(final User user, final List<Role> roleList) {
-        return UserDto.builder()
+    static LoginUserDto fromPojo(final User user, final List<Role> roleList) {
+        return LoginUserDto.builder()
             .id(user.getId())
             .username(user.getUsername())
             .status(user.getStatus())

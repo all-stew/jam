@@ -47,6 +47,8 @@ dependencies {
     implementation("io.grpc:grpc-netty-shaded")
     implementation("io.grpc:grpc-services")
     implementation("io.grpc:grpc-protobuf")
+    implementation("commons-codec:commons-codec")
+    implementation("org.apache.commons:commons-lang3")
 
     runtimeOnly("mysql:mysql-connector-java")
 

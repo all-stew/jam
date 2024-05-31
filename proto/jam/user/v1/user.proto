@@ -9,10 +9,10 @@ option java_package = "com.zhaojj11.jam.protobuf.user.v1";
 
 service UserService {
   rpc GetUserInfoByUsername(GetUserInfoByUsernameRequest) returns (GetUserInfoByUsernameResponse){}
-  rpc CreateUserForRegister(CreateUserForRegisterRequest) returns(CreateUserForRegisterResponse);
+  rpc CreateUserByRegister(CreateUserByRegisterRequest) returns(CreateUserByRegisterResponse);
 }
 
-message UserInfo{
+message LoginUser{
   uint64 userId = 1;
   string username = 2;
   repeated string roles = 3;
@@ -22,12 +22,13 @@ message GetUserInfoByUsernameRequest{
   string username = 1;
 }
 message GetUserInfoByUsernameResponse{
-  UserInfo userInfo = 1;
+  LoginUser userInfo = 1;
 }
 
-message CreateUserForRegisterRequest{
-
+message CreateUserByRegisterRequest{
+  string username = 1;
+  string password = 2;
 }
-message CreateUserForRegisterResponse{
+message CreateUserByRegisterResponse{
 
 }
