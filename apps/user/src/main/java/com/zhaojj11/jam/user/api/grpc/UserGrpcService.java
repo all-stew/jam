@@ -38,7 +38,7 @@ public final class UserGrpcService extends UserServiceImplBase {
         LoginUserDto userDto = userService.getLoginUserByUsername(username);
 
         if (userDto == null) {
-            responseObserver.onError(Status.NOT_FOUND.asException());
+            responseObserver.onError(Status.NOT_FOUND.asRuntimeException());
             return;
         }
 
@@ -64,7 +64,7 @@ public final class UserGrpcService extends UserServiceImplBase {
             responseObserver.onError(
                 Status.INVALID_ARGUMENT
                     .withDescription("username or password is empty")
-                    .asException()
+                    .asRuntimeException()
             );
             return;
         }
@@ -75,15 +75,21 @@ public final class UserGrpcService extends UserServiceImplBase {
             responseObserver.onError(
                 Status.INVALID_ARGUMENT
                     .withDescription("user exist")
-                    .asException()
+                    .asRuntimeException()
             );
             return;
         }
 
-        boolean register = userService.register(username, password);
-        responseObserver.onNext(
-            CreateUserByRegisterResponse.newBuilder().build()
-        );
-        responseObserver.onCompleted();
+        boolean success = userService.register(username, password);
+        if (success) {
+            responseObserver.onNext(
+                CreateUserByRegisterResponse.newBuilder().build()
+            );
+            responseObserver.onCompleted();
+        } else {
+            responseObserver.onError(
+                Status.INTERNAL.asRuntimeException()
+            );
+        }
     }
 }

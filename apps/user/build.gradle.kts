@@ -54,6 +54,7 @@ dependencies {
 
     implementation("io.jsonwebtoken:jjwt:0.9.0")
 
+    testImplementation("io.grpc:grpc-testing")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

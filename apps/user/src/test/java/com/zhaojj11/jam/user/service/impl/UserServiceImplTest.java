@@ -58,4 +58,14 @@ class UserServiceImplTest {
         LoginUserDto userDto = userService.getLoginUserByUsername("test");
         Assertions.assertNotNull(userDto);
     }
+
+
+    @Test
+    void testRegister() {
+        Mockito.when(
+            userRepository.save(ArgumentMatchers.any())
+        ).thenReturn(userData);
+        boolean register = userService.register("test", "test");
+        Assertions.assertTrue(register);
+    }
 }
