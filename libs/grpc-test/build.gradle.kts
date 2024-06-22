@@ -1,6 +1,5 @@
 plugins {
-    id("jacoco")
-    id("com.zhaojj11.jam.java-library")
+    id("com.zhaojj11.jam.spring-boot-library")
     id("io.freefair.lombok") version "8.6"
     id("org.sonarqube") version "4.0.0.2929"
     id("checkstyle")
@@ -11,7 +10,6 @@ checkstyle {
     configFile = file("../../config/checkstyle/checkstyle.xml")
 }
 
-
 sonarqube {
     properties {
         property("sonar.projectKey", "all-stew_jam")
@@ -21,21 +19,11 @@ sonarqube {
     }
 }
 
-dependencies {
-    implementation("org.junit.jupiter:junit-jupiter")
-}
-
 group = "${group}.libs"
 
-tasks.jacocoTestReport {
-    enabled = true
-    dependsOn(tasks.test) // tests are required to run before generating the report
-    reports {
-        xml.required.set(true)
-    }
-}
 
-tasks.test {
-    useJUnitPlatform()
-    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+dependencies {
+    implementation("com.google.code.findbugs:jsr305")
+    implementation("org.junit.jupiter:junit-jupiter")
+    implementation("io.grpc:grpc-api")
 }

@@ -13,7 +13,6 @@ dependencies {
     implementation(platform("com.zhaojj11.jam.platform:product-platform"))
 
     testImplementation(platform("com.zhaojj11.jam.platform:test-platform"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
 tasks.test {
