@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package jam.common.v1;
+
+option go_package = "github.com/jam/server/utils/genproto-go/jam/common/v1;common";
+option java_multiple_files = true;
+option java_outer_classname = "CommonProto";
+option java_package = "com.zhaojj11.jam.protobuf.common.v1";
+
+message Pagination {
+  uint32 perPage = 1;
+  uint32 curPage = 2;
+}

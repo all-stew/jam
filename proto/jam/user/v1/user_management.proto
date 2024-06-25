@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+import "jam/common/v1/common.proto";
+import "jam/user/v1/common.proto";
+
+package jam.user.v1;
+
+option go_package = "github.com/jam/server/utils/genproto-go/jam/user/v1;user";
+option java_multiple_files = true;
+option java_outer_classname = "UserManagementProto";
+option java_package = "com.zhaojj11.jam.protobuf.user.v1";
+
+service UserManagementService {
+  rpc Page(PageRequest) returns (PageReponse);
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+}
+
+message UserInfo{
+  uint64 id = 1;
+  string username = 2;
+  UserStatus status = 3;
+}
+
+message PageRequest {
+  common.v1.Pagination page = 1;
+  uint64 id = 2;
+  string username = 3;
+}
+
+message PageReponse {
+  repeated UserInfo users = 1;
+}
+
+message GetByIdRequest {
+  uint64 id = 1;
+}
+message GetByIdResponse{
+  UserInfo user = 1;
+}
