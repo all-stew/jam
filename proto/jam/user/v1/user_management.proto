@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+import "jam/common/v1/common.proto";
+import "jam/user/v1/common.proto";
+
+package jam.user.v1;
+
+option go_package = "github.com/jam/server/utils/genproto-go/jam/user/v1;user";
+option java_multiple_files = true;
+option java_outer_classname = "UserManagementProto";
+option java_package = "com.zhaojj11.jam.protobuf.user.v1";
+
+service UserManagementService {
+  // 分页查询
+  rpc Page(PageRequest) returns (PageReponse);
+  // 通过 id 获取 user info
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  // 创建用户
+  rpc Create(CreateRequest) returns (CreateReponse);
+  // 重置密码
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse);
+  // 更改状态
+  rpc UpdateStatus(UpdateStatusRequest) returns (UpdateStatusResponse);
+}
+
+message UserInfo{
+  uint64 id = 1;
+  string username = 2;
+  UserStatus status = 3;
+}
+
+message PageRequest {
+  common.v1.Pagination page = 1;
+  uint64 id = 2;
+  string username = 3;
+}
+
+message PageReponse {
+  repeated UserInfo users = 1;
+}
+
+message GetByIdRequest {
+  uint64 id = 1;
+}
+message GetByIdResponse{
+  UserInfo user = 1;
+}
+
+message CreateRequest{
+  string username = 1;
+  string password = 2;
+}
+message CreateReponse{
+  UserInfo user = 1;
+}
+
+message ResetPasswordRequest{
+  uint64 id = 1;
+  string password = 2;
+}
+message ResetPasswordResponse{
+  UserInfo user = 1;
+}
+
+message UpdateStatusRequest{
+  uint64 id = 1;
+  UserStatus status = 2;
+}
+message UpdateStatusResponse{
+  UserInfo user = 1;
+}

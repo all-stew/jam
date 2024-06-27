@@ -3,16 +3,11 @@ plugins {
 }
 
 tasks.named<Copy>("copyProto") {
-    from(layout.projectDirectory.dir("../../proto/jam/user"))
-    into(layout.projectDirectory.dir("src/main/proto/jam/user"))
-}
-
-tasks.build {
-    dependsOn(":common:build")
+    from(layout.projectDirectory.dir("../../proto/jam/common"))
+    into(layout.projectDirectory.dir("src/main/proto/jam/common"))
 }
 
 dependencies {
-    implementation(project(":common"))
     implementation(files("../../proto"))
 }
 

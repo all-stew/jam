@@ -10,6 +10,7 @@ option java_package = "com.zhaojj11.jam.protobuf.user.v1";
 service UserService {
   rpc GetUserInfoByUsername(GetUserInfoByUsernameRequest) returns (GetUserInfoByUsernameResponse){}
   rpc CreateUserByRegister(CreateUserByRegisterRequest) returns(CreateUserByRegisterResponse);
+
 }
 
 message LoginUser{
