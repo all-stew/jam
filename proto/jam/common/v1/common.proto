@@ -10,4 +10,11 @@ option java_package = "com.zhaojj11.jam.protobuf.common.v1";
 message Pagination {
   uint32 perPage = 1;
   uint32 curPage = 2;
+  Sort sort = 3;
+  repeated string properties = 4;
+}
+
+enum Sort {
+  SORT_ASC = 0;
+  SORT_DESC = 1;
 }

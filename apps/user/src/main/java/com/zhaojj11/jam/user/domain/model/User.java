@@ -60,7 +60,7 @@ public class User extends BaseEntity implements Serializable {
     private String salt;
 
     /**
-     * 状态 1-正常 2-禁用.
+     * 状态 0-正常 1-禁用.
      */
     @Column
     private Status status;

@@ -23,8 +23,11 @@ group = "${group}.libs"
 
 
 dependencies {
+    implementation("com.zhaojj11.jam.protobuf:common")
+
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("com.google.code.findbugs:jsr305")
+    implementation("com.google.protobuf:protobuf-java")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

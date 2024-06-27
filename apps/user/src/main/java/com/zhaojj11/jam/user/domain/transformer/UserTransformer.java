@@ -1,11 +1,15 @@
 package com.zhaojj11.jam.user.domain.transformer;
 
 import com.zhaojj11.jam.protobuf.user.v1.LoginUser;
+import com.zhaojj11.jam.protobuf.user.v1.UserInfo;
+import com.zhaojj11.jam.protobuf.user.v1.UserStatus;
 import com.zhaojj11.jam.user.domain.dto.LoginUserDto;
 import com.zhaojj11.jam.user.domain.model.Role;
 import com.zhaojj11.jam.user.domain.model.User;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import org.apache.commons.collections4.CollectionUtils;
 
 public interface UserTransformer {
 
@@ -37,5 +41,35 @@ public interface UserTransformer {
             .status(user.getStatus())
             .roles(new HashSet<>())
             .build();
+    }
+
+    /**
+     * 从 user 到 proto.
+     *
+     * @param user user实体
+     * @return user proto
+     */
+    static UserInfo toProto(final User user) {
+        if (user == null) {
+            return null;
+        }
+        return UserInfo.newBuilder()
+            .setId(user.getId())
+            .setUsername(user.getUsername())
+            .setStatus(UserStatus.forNumber(user.getStatus().getValue()))
+            .build();
+    }
+
+    /**
+     * 从 user 到 proto.
+     *
+     * @param users user 实体列表
+     * @return proto 列表
+     */
+    static List<UserInfo> toProto(final List<User> users) {
+        if (CollectionUtils.isEmpty(users)) {
+            return new ArrayList<>();
+        }
+        return users.stream().map(UserTransformer::toProto).toList();
     }
 }
