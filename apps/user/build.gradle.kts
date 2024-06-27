@@ -32,6 +32,7 @@ dependencies {
     implementation("com.zhaojj11.jam.libs:core")
     implementation("com.zhaojj11.jam.libs:spring-core")
     implementation("com.zhaojj11.jam.libs:jpa-core")
+    implementation("com.zhaojj11.jam.protobuf:common")
     implementation("com.zhaojj11.jam.protobuf:user")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -49,6 +50,8 @@ dependencies {
     implementation("io.grpc:grpc-protobuf")
     implementation("commons-codec:commons-codec")
     implementation("org.apache.commons:commons-lang3")
+    implementation("org.apache.commons:commons-collections4")
+
 
     runtimeOnly("mysql:mysql-connector-java")
 

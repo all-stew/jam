@@ -31,12 +31,12 @@ message UserInfo{
 
 message PageRequest {
   common.v1.Pagination page = 1;
-  uint64 id = 2;
-  string username = 3;
+  string username = 2;
 }
 
 message PageReponse {
   repeated UserInfo users = 1;
+  uint64 total = 2;
 }
 
 message GetByIdRequest {
