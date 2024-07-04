@@ -1,7 +1,7 @@
 package com.zhaojj11.jam.user.api.grpc;
 
+import com.zhaojj11.jam.protobuf.common.v1.OnlyIdResponse;
 import com.zhaojj11.jam.protobuf.user.v1.CreateUserByRegisterRequest;
-import com.zhaojj11.jam.protobuf.user.v1.CreateUserByRegisterResponse;
 import com.zhaojj11.jam.protobuf.user.v1.GetUserInfoByUsernameRequest;
 import com.zhaojj11.jam.protobuf.user.v1.GetUserInfoByUsernameResponse;
 import com.zhaojj11.jam.protobuf.user.v1.UserServiceGrpc.UserServiceImplBase;
@@ -53,7 +53,7 @@ public final class UserGrpcService extends UserServiceImplBase {
     @Override
     public void createUserByRegister(
         final CreateUserByRegisterRequest request,
-        final StreamObserver<CreateUserByRegisterResponse> responseObserver
+        final StreamObserver<OnlyIdResponse> responseObserver
     ) {
         String username = request.getUsername();
         String password = request.getPassword();
@@ -80,16 +80,10 @@ public final class UserGrpcService extends UserServiceImplBase {
             return;
         }
 
-        boolean success = userService.register(username, password);
-        if (success) {
-            responseObserver.onNext(
-                CreateUserByRegisterResponse.newBuilder().build()
-            );
-            responseObserver.onCompleted();
-        } else {
-            responseObserver.onError(
-                Status.INTERNAL.asRuntimeException()
-            );
-        }
+        User user = userService.register(username, password);
+        responseObserver.onNext(
+            OnlyIdResponse.newBuilder().setId(user.getId()).build()
+        );
+        responseObserver.onCompleted();
     }
 }

@@ -1,16 +1,14 @@
 package com.zhaojj11.jam.user.api.grpc;
 
+import com.google.protobuf.Empty;
 import com.zhaojj11.jam.libs.jpa.utils.PageUtils;
-import com.zhaojj11.jam.protobuf.user.v1.CreateReponse;
+import com.zhaojj11.jam.protobuf.common.v1.OnlyIdRequest;
+import com.zhaojj11.jam.protobuf.common.v1.OnlyIdResponse;
 import com.zhaojj11.jam.protobuf.user.v1.CreateRequest;
-import com.zhaojj11.jam.protobuf.user.v1.GetByIdRequest;
 import com.zhaojj11.jam.protobuf.user.v1.GetByIdResponse;
 import com.zhaojj11.jam.protobuf.user.v1.PageReponse;
 import com.zhaojj11.jam.protobuf.user.v1.PageRequest;
 import com.zhaojj11.jam.protobuf.user.v1.ResetPasswordRequest;
-import com.zhaojj11.jam.protobuf.user.v1.ResetPasswordResponse;
-import com.zhaojj11.jam.protobuf.user.v1.UpdateStatusRequest;
-import com.zhaojj11.jam.protobuf.user.v1.UpdateStatusResponse;
 import com.zhaojj11.jam.protobuf.user.v1.UserManagementServiceGrpc.UserManagementServiceImplBase;
 import com.zhaojj11.jam.user.domain.model.User;
 import com.zhaojj11.jam.user.domain.repository.UserRepository;
@@ -51,7 +49,7 @@ public final class UserManagementGrpcService extends UserManagementServiceImplBa
 
     @Override
     public void getById(
-        final GetByIdRequest request,
+        final OnlyIdRequest request,
         final StreamObserver<GetByIdResponse> responseObserver
     ) {
         Optional<User> userOptional = userRepository.findById(request.getId());
@@ -68,10 +66,11 @@ public final class UserManagementGrpcService extends UserManagementServiceImplBa
     @Override
     public void create(
         final CreateRequest request,
-        final StreamObserver<CreateReponse> responseObserver
+        final StreamObserver<OnlyIdResponse> responseObserver
     ) {
+        User user = userService.register(request.getUsername(), request.getPassword());
         responseObserver.onNext(
-            CreateReponse.newBuilder().build()
+            OnlyIdResponse.newBuilder().setId(user.getId()).build()
         );
         responseObserver.onCompleted();
     }
@@ -79,21 +78,11 @@ public final class UserManagementGrpcService extends UserManagementServiceImplBa
     @Override
     public void resetPassword(
         final ResetPasswordRequest request,
-        final StreamObserver<ResetPasswordResponse> responseObserver
+        final StreamObserver<Empty> responseObserver
     ) {
+        userService.resetPassword(request.getId(), request.getPassword());
         responseObserver.onNext(
-            ResetPasswordResponse.newBuilder().build()
-        );
-        responseObserver.onCompleted();
-    }
-
-    @Override
-    public void updateStatus(
-        final UpdateStatusRequest request,
-        final StreamObserver<UpdateStatusResponse> responseObserver
-    ) {
-        responseObserver.onNext(
-            UpdateStatusResponse.newBuilder().build()
+            Empty.newBuilder().build()
         );
         responseObserver.onCompleted();
     }

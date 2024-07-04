@@ -1,6 +1,7 @@
 package com.zhaojj11.jam.user.service;
 
 import com.zhaojj11.jam.user.domain.dto.LoginUserDto;
+import com.zhaojj11.jam.user.domain.model.User;
 
 /**
  * user service.
@@ -24,5 +25,14 @@ public interface UserService {
      * @param password password
      * @return 是否注册成功
      */
-    boolean register(String username, String password);
+    User register(String username, String password);
+
+
+    /**
+     * 重置密码.
+     *
+     * @param userId      用户id
+     * @param newPassword 新密码
+     */
+    void resetPassword(long userId, String newPassword);
 }

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "jam/common/v1/common.proto";
 import "jam/user/v1/common.proto";
+import "google/protobuf/empty.proto";
 
 package jam.user.v1;
 
@@ -14,13 +15,11 @@ service UserManagementService {
   // 分页查询
   rpc Page(PageRequest) returns (PageReponse);
   // 通过 id 获取 user info
-  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  rpc GetById(common.v1.OnlyIdRequest) returns (GetByIdResponse);
   // 创建用户
-  rpc Create(CreateRequest) returns (CreateReponse);
+  rpc Create(CreateRequest) returns (common.v1.OnlyIdResponse);
   // 重置密码
-  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse);
-  // 更改状态
-  rpc UpdateStatus(UpdateStatusRequest) returns (UpdateStatusResponse);
+  rpc ResetPassword(ResetPasswordRequest) returns (google.protobuf.Empty);
 }
 
 message UserInfo{
@@ -39,9 +38,6 @@ message PageReponse {
   uint64 total = 2;
 }
 
-message GetByIdRequest {
-  uint64 id = 1;
-}
 message GetByIdResponse{
   UserInfo user = 1;
 }
@@ -50,22 +46,8 @@ message CreateRequest{
   string username = 1;
   string password = 2;
 }
-message CreateReponse{
-  UserInfo user = 1;
-}
 
 message ResetPasswordRequest{
   uint64 id = 1;
   string password = 2;
-}
-message ResetPasswordResponse{
-  UserInfo user = 1;
-}
-
-message UpdateStatusRequest{
-  uint64 id = 1;
-  UserStatus status = 2;
-}
-message UpdateStatusResponse{
-  UserInfo user = 1;
 }

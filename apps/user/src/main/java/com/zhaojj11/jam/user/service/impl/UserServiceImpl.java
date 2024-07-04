@@ -7,6 +7,7 @@ import com.zhaojj11.jam.user.domain.model.User.Status;
 import com.zhaojj11.jam.user.domain.repository.UserRepository;
 import com.zhaojj11.jam.user.domain.transformer.UserTransformer;
 import com.zhaojj11.jam.user.service.UserService;
+import io.grpc.StatusRuntimeException;
 import java.util.ArrayList;
 import java.util.Optional;
 import javax.annotation.Nonnull;
@@ -33,7 +34,7 @@ public final class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean register(
+    public User register(
         @Nonnull final String username,
         @Nonnull final String password
     ) {
@@ -47,13 +48,24 @@ public final class UserServiceImpl implements UserService {
         String passwordMd5 = DigestUtils.sha256Hex(mixed);
 
         // 4. 构建user 并且保存
-        userRepository.save(User.builder()
+        return userRepository.save(User.builder()
             .username(username)
             .salt(uuidSalt)
             .password(passwordMd5)
             .status(Status.DISABLED)
             .build());
+    }
 
-        return true;
+    @Override
+    public void resetPassword(final long userId, final String newPassword) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isEmpty()) {
+            throw new StatusRuntimeException(io.grpc.Status.NOT_FOUND);
+        }
+        User user = userOptional.get();
+        String mixed = newPassword + user.getSalt();
+        String passwordMd5 = DigestUtils.sha256Hex(mixed);
+        user.setPassword(passwordMd5);
+        userRepository.save(user);
     }
 }

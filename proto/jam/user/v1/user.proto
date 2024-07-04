@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "jam/common/v1/common.proto";
+
 package jam.user.v1;
 
 option go_package = "github.com/jam/server/utils/genproto-go/jam/user/v1;user";
@@ -9,7 +11,7 @@ option java_package = "com.zhaojj11.jam.protobuf.user.v1";
 
 service UserService {
   rpc GetUserInfoByUsername(GetUserInfoByUsernameRequest) returns (GetUserInfoByUsernameResponse){}
-  rpc CreateUserByRegister(CreateUserByRegisterRequest) returns(CreateUserByRegisterResponse);
+  rpc CreateUserByRegister(CreateUserByRegisterRequest) returns(common.v1.OnlyIdResponse);
 
 }
 
@@ -29,7 +31,4 @@ message GetUserInfoByUsernameResponse{
 message CreateUserByRegisterRequest{
   string username = 1;
   string password = 2;
-}
-message CreateUserByRegisterResponse{
-
 }

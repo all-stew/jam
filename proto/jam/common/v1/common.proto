@@ -18,3 +18,11 @@ enum Sort {
   SORT_ASC = 0;
   SORT_DESC = 1;
 }
+
+message OnlyIdRequest {
+  uint64 id = 1;
+}
+
+message OnlyIdResponse {
+  uint64 id = 1;
+}

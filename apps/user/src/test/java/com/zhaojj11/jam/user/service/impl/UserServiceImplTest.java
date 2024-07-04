@@ -65,7 +65,7 @@ class UserServiceImplTest {
         Mockito.when(
             userRepository.save(ArgumentMatchers.any())
         ).thenReturn(userData);
-        boolean register = userService.register("test", "test");
-        Assertions.assertTrue(register);
+        User user = userService.register("test", "test");
+        Assertions.assertNotNull(user);
     }
 }
